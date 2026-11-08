@@ -6,19 +6,19 @@
 <meta property="og:title" content="Prof. Mohamed Irhuma · Clinical pharmacology, with the clinician in the AI loop"><meta property="og:description" content="Prof. Mohamed Irhuma, consultant clinical pharmacologist (FCCP, ABCP, ACCP) and digital health lead: medicolegal opinion, clinical AI governance, education and clinical decision-support tools.">
 <meta property="og:image" content="https://irhuma.org/og-share.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://irhuma.org/og-share.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"><style>
+<script>try{var t=localStorage.getItem('irhuma-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"><style>
 /* Layout: navy masthead + hero band, paper body with route-switched pages; green as the clinical accent */
 :root{
- --navy:#0F2340; --navy-2:#173156; --green:#14533F; --accent:#1F7A5A; --blue:#2C83C6; --red:#D33A31;
- --paper:#F3F6F5; --card:#FFFFFF; --ink:#13202D; --muted:#566573; --line:#D9E2DE; --tint:#E6F0EC;
+ --navy:#0F2340; --navy-2:#173156; --green:#1B3A66; --accent:#1E5AA8; --blue:#2C83C6; --red:#D33A31;
+ --paper:#FFFFFF; --card:#F6F9FD; --ink:#0F2340; --muted:#4E5F7A; --line:#DCE5F0; --tint:#E8F0FA;
  --todo-bg:#FFF4D6; --todo-fg:#7A5300; --todo-line:#E5B94B;
  --serif:"Source Serif 4",Georgia,"Times New Roman",serif; --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
- --paper:#0B1521; --card:#111E2D; --ink:#E5ECEF; --muted:#9BAAB6; --line:#22344A; --tint:#12302A; --accent:#4DB48C;
+ --paper:#0D1B33; --card:#142A4D; --ink:#E8F0FA; --muted:#A9BDD8; --line:#24406A; --tint:#183660; --accent:#8DB8F0;
  --todo-bg:#3A2E0E; --todo-fg:#F5D27A; --todo-line:#8C6B1E; color-scheme:dark}}
-:root[data-theme="dark"]{--paper:#0B1521; --card:#111E2D; --ink:#E5ECEF; --muted:#9BAAB6; --line:#22344A; --tint:#12302A; --accent:#4DB48C;
+:root[data-theme="dark"]{--paper:#0D1B33; --card:#142A4D; --ink:#E8F0FA; --muted:#A9BDD8; --line:#24406A; --tint:#183660; --accent:#8DB8F0;
  --todo-bg:#3A2E0E; --todo-fg:#F5D27A; --todo-line:#8C6B1E; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--paper);color:var(--ink);font:16px/1.65 var(--sans);margin:0}
@@ -43,30 +43,30 @@ html.no-todo .todo{display:none}
 nav.tabs{display:flex;gap:2px;flex-wrap:wrap}
 nav.tabs a{color:#C9D7E3;text-decoration:none;font-size:14px;font-weight:500;padding:7px 11px;border-radius:6px}
 nav.tabs a:hover{color:#fff;background:rgba(255,255,255,.07)}
-nav.tabs a[aria-current="page"]{color:#fff;background:var(--green)}
+nav.tabs a[aria-current="page"]{color:#fff;background:#2A5596}
 nav.tabs a.ar{font-family:"Noto Naskh Arabic",var(--serif);border:1px solid rgba(255,255,255,.2)}
 
 /* hero */
-.hero{background:radial-gradient(900px 420px at 85% 10%,rgba(31,122,90,.35),transparent 60%),linear-gradient(180deg,var(--navy),var(--navy-2));color:#fff}
+.hero{background:radial-gradient(900px 420px at 85% 10%,rgba(70,130,210,.28),transparent 60%),linear-gradient(180deg,var(--navy),var(--navy-2));color:#fff}
 .hero .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:center;padding-block:64px 56px}
-.hero .eyebrow{color:#7FD1AE}
+.hero .eyebrow{color:#9CC3F0}
 .hero h1{font-size:clamp(2.1rem,4.4vw,3.4rem);margin:14px 0 18px;color:#fff}
-.hero h1 em{color:#8FD9B8}
+.hero h1 em{color:#A9CDF5}
 .hero .lede{color:#C5D3DF}
 .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
 .btn{display:inline-flex;align-items:center;gap:8px;font:600 15px/1 var(--sans);padding:13px 18px;border-radius:8px;text-decoration:none;border:1px solid transparent;cursor:pointer}
-.btn.solid{background:#2A9A70;color:#fff}.btn.solid:hover{background:#238560}
+.btn.solid{background:#2F6FC2;color:#fff}.btn.solid:hover{background:#255EA9}
 .btn.ghost{color:#fff;border-color:rgba(255,255,255,.35)}.btn.ghost:hover{background:rgba(255,255,255,.08)}
 .rx{background:#FBFCFB;color:#13202D;border-radius:10px;padding:22px 24px;box-shadow:0 20px 50px rgba(0,0,0,.35);position:relative;min-width:0}
 .rx-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #13202D;padding-bottom:8px;margin-bottom:6px}
 .rx-head span{font:600 2rem/1 var(--serif);font-style:italic}
-.rx-head small{font:500 11px var(--mono);letter-spacing:.08em;color:#566573;text-transform:uppercase}
+.rx-head small{font:500 11px var(--mono);letter-spacing:.08em;color:#4E5F7A;text-transform:uppercase}
 .rx dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 16px;padding:10px 0}
-.rx dt{font:500 11px/1.6 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:#1F7A5A}
+.rx dt{font:500 11px/1.6 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:#1E5AA8}
 .rx dd{margin:0;font-size:14px;line-height:1.5}
 .rx .sig{border-top:1px dashed #9AA8B4;padding-top:12px;display:flex;justify-content:space-between;align-items:end;gap:12px}
 .rx .sig q{font:italic 400 1.35rem/1.2 var(--serif);quotes:none}
-.rx .sig small{font:400 11px var(--mono);color:#566573;text-align:right}
+.rx .sig small{font:400 11px var(--mono);color:#4E5F7A;text-align:right}
 .creds{background:var(--navy-2);border-top:1px solid rgba(255,255,255,.07)}
 .creds .wrap{display:flex;flex-wrap:wrap;gap:8px;padding-block:14px}
 .creds span{font:500 12px/1 var(--mono);color:#CFE0EC;border:1px solid rgba(255,255,255,.18);padding:6px 9px;border-radius:999px}
@@ -122,10 +122,10 @@ main .page{padding-block:56px 72px}
 .svc h3{font-size:1.25rem;margin-bottom:6px}
 .svc .for{font-size:13px;color:var(--muted);margin:0 0 12px}
 .svc ul{margin:0;padding-left:18px;font-size:15px;display:grid;gap:6px}
-.contact{background:var(--green);color:#fff}
+.contact{background:var(--navy-2);color:#fff}
 .contact .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center;padding-block:48px}
 .contact h2{color:#fff;font-size:clamp(1.6rem,3vw,2.2rem)}
-.contact p{color:#D5EBE1;margin:10px 0 0;max-width:60ch}
+.contact p{color:#D6E4F5;margin:10px 0 0;max-width:60ch}
 .contact .box{background:rgba(0,0,0,.18);border-radius:10px;padding:18px 20px;display:grid;gap:10px}
 .contact .box a{color:#fff;font-weight:600}
 .copy{font:500 12px var(--mono);background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:6px;padding:5px 9px;cursor:pointer}
@@ -141,12 +141,12 @@ footer button{font:500 12px var(--mono);background:transparent;color:#A9BCCB;bor
 @media (prefers-reduced-motion:no-preference){.page:not([hidden]){animation:in .35s ease-out}@keyframes in{from{opacity:.4;transform:translateY(6px)}to{opacity:1;transform:none}}}
 
 .idcard{background:linear-gradient(165deg,var(--navy),var(--navy-2));color:#fff;border-radius:12px;padding:24px;display:grid;gap:14px;align-content:start;position:relative;overflow:hidden}
-.idcard::after{content:"";position:absolute;inset:auto -40px -40px auto;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(42,154,112,.45),transparent 70%)}
+.idcard::after{content:"";position:absolute;inset:auto -40px -40px auto;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(90,150,230,.40),transparent 70%)}
 .idcard .mono{width:84px;height:84px;border-radius:50%;border:1.5px solid rgba(255,255,255,.35);display:grid;place-items:center;font:600 2rem/1 var(--serif);letter-spacing:.02em;color:#fff;background:rgba(255,255,255,.04)}
 .idcard b{font:600 1.15rem/1.3 var(--serif)}
 .idcard small{font:500 11px/1.6 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#9FC2D8}
 .idcard dl{margin:0;display:grid;gap:8px;font-size:14px}
-.idcard dt{font:500 10.5px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#7FD1AE}
+.idcard dt{font:500 10.5px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#9CC3F0}
 .idcard dd{margin:0;color:#DCE7EF}
 .idlinks{display:flex;gap:8px;flex-wrap:wrap;position:relative;z-index:1}
 .idlinks a,.pill-link{font:600 13px/1 var(--sans);padding:8px 11px;border-radius:6px;text-decoration:none}
@@ -154,16 +154,16 @@ footer button{font:500 12px var(--mono);background:transparent;color:#A9BCCB;bor
 .idlinks a:hover{background:rgba(255,255,255,.08)}
 .pill-link{border:1px solid var(--line);color:var(--accent);background:var(--card);display:inline-block}
 .pill-link:hover{border-color:var(--accent)}
-.pgx{background:#FBFCFB;color:#13202D;border-radius:10px;padding:18px 20px;border:1px solid #D9E2DE;min-width:0}
-.pgx .hd{display:flex;justify-content:space-between;gap:10px;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#566573;border-bottom:1px solid #D9E2DE;padding-bottom:8px}
+.pgx{background:#FBFCFB;color:#13202D;border-radius:10px;padding:18px 20px;border:1px solid #DCE5F0;min-width:0}
+.pgx .hd{display:flex;justify-content:space-between;gap:10px;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#4E5F7A;border-bottom:1px solid #DCE5F0;padding-bottom:8px}
 .pgx .gene{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 8px}
-.pgx .gene span{font:500 12px var(--mono);background:#E6F0EC;color:#14533F;padding:4px 8px;border-radius:4px}
+.pgx .gene span{font:500 12px var(--mono);background:#E8F0FA;color:#1B3A66;padding:4px 8px;border-radius:4px}
 .pgx .gene span.flag{background:#FBE3E1;color:#9B231C}
 .pgx h4{font:600 1.05rem/1.35 var(--serif);margin:0 0 8px}
 .pgx dl{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;margin:0;font-size:13.5px;line-height:1.5}
-.pgx dt{font:500 10.5px/1.6 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:#1F7A5A}
+.pgx dt{font:500 10.5px/1.6 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:#1E5AA8}
 .pgx dd{margin:0}
-.pgx .note{font-size:12px;color:#566573;margin:10px 0 0;border-top:1px dashed #9AA8B4;padding-top:8px}
+.pgx .note{font-size:12px;color:#4E5F7A;margin:10px 0 0;border-top:1px dashed #9AA8B4;padding-top:8px}
 .cat-filters{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 18px}
 .cat-filters button{font:500 13px var(--sans);border:1px solid var(--line);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:999px;cursor:pointer}
 .cat-filters button[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
@@ -192,22 +192,27 @@ footer button{font:500 12px var(--mono);background:transparent;color:#A9BCCB;bor
 .steps h4{font:600 1.05rem var(--serif);margin:0 0 4px}.steps p{margin:0;font-size:14px;color:var(--muted)}
 .indep{border-left:3px solid var(--accent);padding:6px 0 6px 16px;margin:28px 0 0;color:var(--muted);max-width:72ch}
 footer .wrap{padding-bottom:max(22px,env(safe-area-inset-bottom,0px))}
+.theme{display:inline-grid;place-items:center;background:transparent;color:#C9D7E3;border:1px solid rgba(255,255,255,.22);border-radius:6px;padding:6px 9px;cursor:pointer;flex:0 0 auto}
+.theme:hover{color:#fff;background:rgba(255,255,255,.07)}
+.contact{border-top:1px solid rgba(255,255,255,.08)}
+main .page{padding-block:52px 68px}
+.card{transition:border-color .15s}.card:hover{border-color:color-mix(in srgb,var(--accent) 35%,var(--line))}
 main .page{scroll-margin-top:72px}
 @media (prefers-reduced-motion:no-preference){.page:not([hidden]){animation:rise .35s ease-out}@keyframes rise{from{transform:translateY(6px)}to{transform:none}}}
 @media (max-width:860px){.mast .wrap{gap:8px}nav.tabs{flex-wrap:nowrap;overflow-x:auto;width:100%;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:2px}nav.tabs::-webkit-scrollbar{display:none}nav.tabs a{white-space:nowrap;flex:0 0 auto}main .page{scroll-margin-top:110px}}
 @media (max-width:860px){.catalogue{grid-template-columns:repeat(2,minmax(0,1fr))}.feature.book-f{grid-template-columns:1fr}.steps{grid-template-columns:1fr}}
 @media (max-width:560px){.catalogue{grid-template-columns:1fr}}
-</style></head><body><div class="mast"><div class="wrap"><a class="brand" href="#bio"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMwRjIzNDAiLz48cmVjdCB4PSIyNSIgeT0iMTAiIHdpZHRoPSIxNCIgaGVpZ2h0PSI0NCIgcng9IjciIGZpbGw9IiNGRkZGRkYiLz48cmVjdCB4PSIxMCIgeT0iMjUiIHdpZHRoPSI0NCIgaGVpZ2h0PSIxNCIgcng9IjciIGZpbGw9IiNGRkZGRkYiIHN0cm9rZT0iIzBGMjM0MCIgc3Ryb2tlLXdpZHRoPSIyLjUiLz48cGF0aCBkPSJNMTcgMjVoMTV2MTRIMTdhNyA3IDAgMCAxIDAtMTR6IiBmaWxsPSIjMkE5QTcwIi8+PHJlY3QgeD0iMzEuMiIgeT0iMjUiIHdpZHRoPSIxLjYiIGhlaWdodD0iMTQiIGZpbGw9IiMwRjIzNDAiLz48L3N2Zz4K" alt="" width="34" height="34"><span><b>Prof. Mohamed Irhuma</b><small>Prof. Irhuma Inc.</small></span></a><nav class="tabs" aria-label="Sections"><a href="#bio" data-p="bio">Bio</a><a href="#tools" data-p="tools">AI Tools</a><a href="#writing" data-p="writing">Writing</a><a href="#education" data-p="education">Education</a><a href="#books" data-p="books">Books</a><a href="#media" data-p="media">Speaking &amp; Media</a><a href="#services" data-p="services">Expertise &amp; Services</a><a class="ar" href="irhuma_bio_ar.html" lang="ar">العربية</a></nav></div></div>
+</style></head><body><div class="mast"><div class="wrap"><a class="brand" href="#bio"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMwRjIzNDAiLz48cmVjdCB4PSIyNSIgeT0iMTAiIHdpZHRoPSIxNCIgaGVpZ2h0PSI0NCIgcng9IjciIGZpbGw9IiNGRkZGRkYiLz48cmVjdCB4PSIxMCIgeT0iMjUiIHdpZHRoPSI0NCIgaGVpZ2h0PSIxNCIgcng9IjciIGZpbGw9IiNGRkZGRkYiIHN0cm9rZT0iIzBGMjM0MCIgc3Ryb2tlLXdpZHRoPSIyLjUiLz48cGF0aCBkPSJNMTcgMjVoMTV2MTRIMTdhNyA3IDAgMCAxIDAtMTR6IiBmaWxsPSIjNEE4RkUwIi8+PHJlY3QgeD0iMzEuMiIgeT0iMjUiIHdpZHRoPSIxLjYiIGhlaWdodD0iMTQiIGZpbGw9IiMwRjIzNDAiLz48L3N2Zz4K" alt="" width="34" height="34"><span><b>Prof. Mohamed Irhuma</b><small>Prof. Irhuma Inc.</small></span></a><nav class="tabs" aria-label="Sections"><a href="#bio" data-p="bio">Bio</a><a href="#tools" data-p="tools">AI Tools</a><a href="#writing" data-p="writing">Writing</a><a href="#education" data-p="education">Education</a><a href="#books" data-p="books">Books</a><a href="#media" data-p="media">Speaking &amp; Media</a><a href="#services" data-p="services">Expertise &amp; Services</a><a class="ar" href="irhuma_bio_ar.html" lang="ar">العربية</a><button class="theme" id="themeBtn" type="button" aria-label="Switch between light and dark view" title="Light / dark view"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg></button></nav></div></div>
 <header class="hero"><div class="wrap"><div><p class="eyebrow">Consultant clinical pharmacologist · Digital health lead</p>
 <h1>Clinical pharmacology, <em>with the clinician in the AI loop.</em></h1>
 <p class="lede">Prof. Mohamed Irhuma translates pharmacological evidence into safe prescribing, defensible medicolegal opinion and clinical AI that shows its reasoning.</p>
 <div class="cta"><a class="btn solid" href="#services">Expertise &amp; services</a><a class="btn ghost" href="#tools">Explore AI tools</a></div></div>
 <div class="rx" aria-label="Practice summary"><div class="rx-head"><span>Rx</span><small>Consult summary</small></div>
 <dl><dt>Indication</dt><dd>Rational prescribing, pharmacovigilance, medicolegal review, clinical AI governance</dd>
-<dt>Evidence</dt><dd>FCCP · ABCP · ACCP · PMP · Co-editor of the national medicines formulary for a decade</dd>
+<dt>Evidence</dt><dd>FCCP · PMP · ABCP · ACCP · Co-editor of the national medicines formulary for a decade</dd>
 <dt>Method</dt><dd>Glass-box reasoning. Source, logic, patient factors and uncertainty stated.</dd>
 <dt>Reach</dt><dd>RSA · UK · KSA · US · EU · Middle East</dd></dl>
-<div class="sig"><q>Think before you ink.</q><small>Prof. M. Irhuma<br>MBBCh, FCCP, ACCP, ABCP</small></div></div></div></header>
+<div class="sig"><q>Think before you ink.</q><small>Prof. M. Irhuma<br>MBBCh, FCCP, ABCP, ACCP</small></div></div></div></header>
 <div class="creds"><div class="wrap"><span>MBBCh (UoT)</span><span>FCCP FC Clin Pharm(SA)</span><span>Cert. Hospital Management</span><span>PGCert Health Informatics (Leeds)</span><span>PMP (PMI)</span><span>MD Clin Pharm</span><span>ABCP (USA)</span><span>ACCP (USA)</span></div></div><main><section class="page" id="bio"><div class="wrap">
 <div class="page-head"><p class="eyebrow">Biography</p><h2>Specialist clinical pharmacologist, <em>governing clinical AI.</em></h2></div>
 <div class="bio">
@@ -279,7 +284,7 @@ main .page{scroll-margin-top:72px}
 <div class="steps"><div><h4>Enquiry &amp; conflict check</h4><p>Send a short outline. Conflicts of interest are checked before any documents are reviewed.</p></div>
 <div><h4>Scope &amp; terms</h4><p>Questions, deliverables, timeline and fees are agreed in writing.</p></div>
 <div><h4>Review &amp; report</h4><p>Evidence-based analysis with sources and reasoning stated, delivered as a report, briefing or tool.</p></div></div>
-<p class="indep">In medicolegal matters, opinions are independent and objective. The expert’s overriding duty is to the court or tribunal, whichever party gives instructions.</p></div></section></main><section class="contact"><div class="wrap"><div><p class="eyebrow" style="color:#A8E2C9">Contact</p>
+<p class="indep">In medicolegal matters, opinions are independent and objective. The expert’s overriding duty is to the court or tribunal, whichever party gives instructions.</p></div></section></main><section class="contact"><div class="wrap"><div><p class="eyebrow" style="color:#A9CDF5">Contact</p>
 <h2>Clinical pharmacology, medicolegal and digital health enquiries</h2>
 <p>Expert opinion, advisory work, speaking requests and tool demonstrations. Based in Johannesburg, working across Saudi Arabia, Libya, the UK, the EU and the US.</p></div>
 <div class="box"><div><small style="opacity:.8">Prof. Irhuma Inc.</small><br><a href="mailto:info@irhuma.org">info@irhuma.org</a> <button class="copy" type="button" data-copy="info@irhuma.org">Copy</button></div></div></div></section>
@@ -296,6 +301,7 @@ main .page{scroll-margin-top:72px}
  if(q)q.addEventListener('input',filt);
  document.querySelectorAll('.cat-filters button').forEach(function(b){b.addEventListener('click',function(){cat=b.dataset.cat;
   document.querySelectorAll('.cat-filters button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});filt();});});
+ var tb=document.getElementById('themeBtn');if(tb)tb.addEventListener('click',function(){var r=document.documentElement,c=r.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=c==='dark'?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem('irhuma-theme',n)}catch(e){}});
  document.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){var t=b.dataset.copy;
   (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copied'},function(){b.textContent=t});});});
 })();
