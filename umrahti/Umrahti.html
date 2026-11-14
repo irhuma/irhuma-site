@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#5a3818">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Umrahti">
+<meta name="format-detection" content="telephone=no">
+<title>عُمرتِي Umrahti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6efe0;--sf:#fffaf0;--sf2:#f3e8cf;--ink:#2e2010;--mut:#76603f;--br:#6b4423;--br2:#8a5a2b;--gd:#b8891d;--gd2:#e0bd5a;--ln:#e3d3ae;--ok:#2e7d4f;--bad:#b3261e;--warn:#a85f00;--info:#2b6a9a;--pur:#6a3d9a;--hd1:#6b4423;--hd2:#3c240f;--sea:#d9e6ea;--land:#efe2c4;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#140f09;--sf:#21190f;--sf2:#2a2013;--ink:#f3e6c8;--mut:#c2a97c;--br:#c08a4a;--br2:#e2b36a;--gd:#e0b84e;--gd2:#f2d27a;--ln:#3d2f1c;--ok:#5cc58a;--bad:#ff7a6e;--warn:#f0a640;--info:#6fb0e0;--pur:#b48ae0;--hd1:#2b1e0f;--hd2:#120c06;--sea:#1b2a30;--land:#2a2114;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#140f09;--sf:#21190f;--sf2:#2a2013;--ink:#f3e6c8;--mut:#c2a97c;--br:#c08a4a;--br2:#e2b36a;--gd:#e0b84e;--gd2:#f2d27a;--ln:#3d2f1c;--ok:#5cc58a;--bad:#ff7a6e;--warn:#f0a640;--info:#6fb0e0;--pur:#b48ae0;--hd1:#2b1e0f;--hd2:#120c06;--sea:#1b2a30;--land:#2a2114;color-scheme:dark}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{font-size:16px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html.senior{font-size:22px}
+body{margin:0;background-color:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans",Arial,sans-serif;line-height:1.6;padding-bottom:calc(78px + env(safe-area-inset-bottom));
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23b8891d' stroke-opacity='.10' stroke-width='1'%3E%3Crect x='20' y='20' width='24' height='24'/%3E%3Crect x='20' y='20' width='24' height='24' transform='rotate(45 32 32)'/%3E%3Ccircle cx='32' cy='32' r='6'/%3E%3C/g%3E%3C/svg%3E")}
+[dir="rtl"] body{font-family:"Noto Naskh Arabic","Geeza Pro","Segoe UI",Tahoma,Arial,sans-serif}
+html.senior body{background-image:none;line-height:1.75}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:var(--br2)}
+/* header */
+.top{position:-webkit-sticky;position:sticky;top:0;z-index:30;background:linear-gradient(135deg,var(--hd1),var(--hd2));color:#f8e7b9;padding:calc(8px + env(safe-area-inset-top)) 12px 0;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+.topin{max-width:960px;margin:0 auto;display:flex;align-items:center;gap:10px}
+.logo{width:40px;height:40px;flex:0 0 40px}
+.ttl{flex:1;min-width:0;line-height:1.1}
+.ttl b{font-family:"Amiri","Noto Naskh Arabic",serif;font-size:1.45rem;color:#f2d27a;display:block}
+.ttl small{font-size:.72rem;opacity:.85;letter-spacing:.06em}
+.tbtn{background:rgba(255,255,255,.1);border:1px solid rgba(242,210,122,.45);color:#f8e7b9;border-radius:999px;min-width:44px;height:40px;padding:0 10px;font-weight:700;font-size:.85rem;white-space:nowrap}
+.tbtn.on{background:#e0b84e;color:#2b1a05;border-color:#e0b84e}
+.pbar{max-width:960px;margin:8px auto 0;height:5px;background:rgba(255,255,255,.12);border-radius:4px;overflow:hidden}
+.pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#e0b84e,#f2d27a);transition:width .4s}
+main{max-width:960px;margin:0 auto;padding:10px 14px 24px}
+/* stepper */
+.steps{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:6px 2px 10px;scrollbar-width:none}
+.steps::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;display:flex;align-items:center;gap:6px;border:1.5px solid var(--ln);background:var(--sf);border-radius:999px;padding:8px 12px;font-size:.88rem;font-weight:600;color:var(--ink)}
+.chip.cur{border-color:var(--gd);background:linear-gradient(var(--gd2),var(--gd));color:#2b1a05}
+.chip .n{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--sf2);font-size:.75rem}
+.chip.cur .n{background:rgba(255,255,255,.55)}
+.chip.dn .n{background:var(--ok);color:#fff}
+/* cards */
+.card{background:var(--sf);border:1px solid var(--ln);border-radius:18px;padding:16px;margin:12px 0;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.card.gold{border:1.5px solid var(--gd);background:linear-gradient(160deg,var(--sf),var(--sf2))}
+h1,h2,h3{line-height:1.3;margin:.2em 0 .5em}
+h1{font-size:1.5rem}h2{font-size:1.25rem;color:var(--br)}h3{font-size:1.05rem;color:var(--br2)}
+.hero{text-align:center;padding:22px 16px}
+.bism{font-family:"Amiri",serif;font-size:2rem;color:var(--gd);margin:0}
+.lead{color:var(--mut);margin:.4em 0 1em}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:640px){.grid{grid-template-columns:repeat(4,1fr)}}
+html.senior .grid{grid-template-columns:1fr}
+.tile{border:1.5px solid var(--ln);background:var(--sf);border-radius:16px;padding:14px 10px;text-align:center;font-weight:700;position:relative;min-height:92px}
+.tile .e{font-size:1.7rem;display:block}
+.tile.dn{border-color:var(--ok)}
+.tile.dn:after{content:"✓";position:absolute;top:6px;inset-inline-end:10px;color:var(--ok);font-weight:900}
+.pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:.78rem;font-weight:700;background:var(--sf2);color:var(--br)}
+ol.flow,ul.lst{padding-inline-start:1.3em;margin:.4em 0}
+ol.flow li,ul.lst li{margin:.45em 0}
+.note{border-inline-start:4px solid var(--gd);background:var(--sf2);padding:10px 12px;border-radius:10px;margin:10px 0;font-size:.95rem}
+.note.r{border-color:var(--bad)}.note.g{border-color:var(--ok)}.note.b{border-color:var(--info)}
+.src{font-size:.8rem;color:var(--mut);margin-top:6px}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:14px;padding:10px 18px;font-weight:800;border:0;background:var(--br);color:#fff8e6}
+[data-theme="dark"] .btn{color:#1c1207}
+.btn.gold{background:linear-gradient(var(--gd2),var(--gd));color:#2b1a05}
+.btn.ghost{background:transparent;border:1.5px solid var(--ln);color:var(--ink)}
+.btn.xl{width:100%;min-height:64px;font-size:1.1rem;border-radius:18px}
+.btn.sm{min-height:38px;padding:6px 12px;font-size:.85rem;border-radius:10px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.row.sp{justify-content:space-between}
+/* dua */
+.dua{border:1.5px solid var(--gd);background:linear-gradient(170deg,var(--sf),var(--sf2));border-radius:18px;padding:14px;margin:12px 0}
+.dua .dh{font-weight:800;color:var(--br);font-size:.95rem}
+.art{font-family:"Amiri","Noto Naskh Arabic","Geeza Pro","Traditional Arabic",serif;font-size:1.6rem;line-height:2.15;text-align:center;margin:8px 0;direction:rtl}
+html.senior .art{font-size:2rem}
+.fr{font-style:italic;color:var(--br2);margin:4px 0}
+.mn{margin:4px 0}
+.tally{display:flex;align-items:center;gap:10px;margin-top:10px;flex-wrap:wrap}
+.tally .cnt{font-weight:900;font-size:1.25rem;min-width:56px;text-align:center;color:var(--gd)}
+/* checklist */
+.chk{display:flex;gap:12px;align-items:flex-start;padding:10px 4px;border-bottom:1px dashed var(--ln);cursor:pointer}
+.chk:last-child{border-bottom:0}
+.chk input{width:24px;height:24px;flex:0 0 24px;accent-color:#b8891d;margin-top:2px}
+html.senior .chk input{width:32px;height:32px;flex-basis:32px}
+/* counters */
+.ctr{text-align:center}
+.ring{width:210px;height:210px;max-width:70vw;max-height:70vw;display:block;margin:4px auto}
+html.senior .ring{width:260px;height:260px}
+.seg{fill:none;stroke:var(--ln);stroke-width:13;stroke-linecap:round;transition:stroke .3s}
+.seg.on{stroke:var(--gd)}
+.seg.nx{stroke:var(--gd2);stroke-dasharray:4 5}
+.big{font-size:2.6rem;font-weight:900;color:var(--br);line-height:1}
+.hint{background:var(--sf2);border-radius:14px;padding:10px 12px;margin:10px 0;font-size:.95rem}
+.track{width:100%;max-width:520px;display:block;margin:6px auto}
+/* map */
+.map{width:100%;max-width:560px;display:block;margin:6px auto;border-radius:14px;border:1px solid var(--ln);background:var(--land)}
+.rt{fill:none;stroke:var(--gd);stroke-width:3;stroke-dasharray:7 6;-webkit-animation:dash 1.2s linear infinite;animation:dash 1.2s linear infinite}
+@-webkit-keyframes dash{to{stroke-dashoffset:-26}}@keyframes dash{to{stroke-dashoffset:-26}}
+.pulse{-webkit-animation:pl 1.6s ease-out infinite;animation:pl 1.6s ease-out infinite;transform-origin:center;transform-box:fill-box}
+@-webkit-keyframes pl{0%{opacity:.9;-webkit-transform:scale(.6)}100%{opacity:0;-webkit-transform:scale(2.4)}}@keyframes pl{0%{opacity:.9;transform:scale(.6)}100%{opacity:0;transform:scale(2.4)}}
+.rsel{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+@media(min-width:640px){.rsel{grid-template-columns:repeat(4,1fr)}}
+html.senior .rsel{grid-template-columns:1fr}
+.rbtn{border:1.5px solid var(--ln);background:var(--sf);border-radius:14px;padding:10px 8px;font-weight:700;font-size:.88rem;min-height:56px}
+.rbtn.on{border-color:var(--gd);background:linear-gradient(var(--gd2),var(--gd));color:#2b1a05}
+.tl{list-style:none;padding:0;margin:8px 0}
+.tl li{position:relative;padding:8px 0;padding-inline-start:38px}
+.tl li b.k{position:absolute;inset-inline-start:0;top:8px;width:28px;height:28px;border-radius:50%;background:var(--br);color:#fff8e6;display:grid;place-items:center;font-size:.85rem}
+/* warnings */
+.flt{display:flex;gap:8px;overflow-x:auto;padding:4px 0 8px;scrollbar-width:none}
+.flt::-webkit-scrollbar{display:none}
+details.w{background:var(--sf);border:1px solid var(--ln);border-inline-start:6px solid var(--gd);border-radius:14px;margin:10px 0;padding:0 14px}
+details.w.inv{border-inline-start-color:var(--bad)}details.w.fid{border-inline-start-color:var(--warn)}details.w.ok{border-inline-start-color:var(--ok)}details.w.bid{border-inline-start-color:var(--pur)}
+details.w summary{list-style:none;padding:14px 0;font-weight:800;display:flex;gap:10px;align-items:flex-start}
+details.w summary::-webkit-details-marker{display:none}
+details.w summary:after{content:"＋";margin-inline-start:auto;color:var(--mut)}
+details.w[open] summary:after{content:"－"}
+details.w .bd{padding:0 0 14px}
+.tag{font-size:.72rem;font-weight:800;padding:2px 8px;border-radius:999px;color:#fff;white-space:nowrap}
+.tag.inv{background:var(--bad)}.tag.fid{background:var(--warn)}.tag.ok{background:var(--ok)}.tag.bid{background:var(--pur)}
+/* forms */
+.fld{margin:10px 0}
+.fld label{display:block;font-weight:700;font-size:.9rem;margin-bottom:4px;color:var(--br)}
+.fld input,.fld textarea,.fld select{width:100%;border:1.5px solid var(--ln);background:var(--bg);border-radius:12px;padding:12px;min-height:48px;font-size:1rem}
+.fld textarea{min-height:80px;resize:vertical}
+.fld input:focus,.fld textarea:focus{outline:2px solid var(--gd);border-color:var(--gd)}
+.sos a{display:flex;justify-content:space-between;align-items:center;text-decoration:none;color:var(--ink);border:1.5px solid var(--ln);border-radius:14px;padding:12px 14px;margin:8px 0;background:var(--sf);font-weight:700}
+.sos a b{font-size:1.4rem;color:var(--bad)}
+/* nav */
+.bnav{position:fixed;bottom:0;left:0;right:0;z-index:30;background:var(--sf);border-top:1px solid var(--ln);padding:6px 6px calc(6px + env(safe-area-inset-bottom));box-shadow:0 -4px 14px rgba(0,0,0,.08)}
+.bnav .in{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.nb{background:none;border:0;border-radius:12px;padding:6px 2px;font-size:.74rem;font-weight:700;color:var(--mut);display:flex;flex-direction:column;align-items:center;gap:2px;min-height:54px}
+.nb .e{font-size:1.35rem;line-height:1}
+.nb.on{background:var(--sf2);color:var(--br)}
+.pn{display:flex;gap:10px;margin:18px 0 6px}
+.pn .btn{flex:1}
+/* modal & toast */
+.ov{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(20,12,4,.6);z-index:50;display:none;align-items:center;justify-content:center;padding:16px}
+.ov.on{display:flex}
+.mdl{background:var(--sf);color:var(--ink);border-radius:20px;max-width:520px;width:100%;max-height:88vh;overflow:auto;padding:20px;border:2px solid var(--gd);-webkit-overflow-scrolling:touch}
+.toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom));-webkit-transform:translateX(-50%);transform:translateX(-50%);background:#2b1a05;color:#f8e7b9;padding:10px 16px;border-radius:12px;z-index:60;opacity:0;transition:opacity .3s;pointer-events:none;max-width:90vw;text-align:center;font-weight:700}
+.toast.on{opacity:1}
+.ec{font-size:1.15rem}
+.ec dt{font-weight:800;color:var(--br);margin-top:10px;font-size:.85rem}
+.ec dd{margin:0;font-size:1.2rem;font-weight:700;word-break:break-word}
+.fig{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.fig figure{margin:0;text-align:center;font-size:.85rem;font-weight:700;color:var(--mut)}
+.fig svg{width:120px;height:170px}
+footer{text-align:center;color:var(--mut);font-size:.8rem;padding:14px 10px 4px}
+.hide{display:none!important}
+.zz{display:flex;gap:12px;align-items:center;border:1.5px solid var(--info);background:var(--sf);border-radius:16px;padding:12px;margin:12px 0}
+.zz .e{font-size:1.8rem}
+</style>
+</head>
+<body>
+<header class="top">
+ <div class="topin">
+  <svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 2l5.6 4.4 7-.9.9 7 4.4 5.6-4.4 5.6-.9 7-7-.9L24 46l-5.6-4.4-7 .9-.9-7L6 24l4.4-5.6.9-7 7 .9z" fill="#e0b84e" opacity=".25"/><rect x="13" y="15" width="22" height="20" rx="1.5" fill="#1d1309" stroke="#e0b84e" stroke-width="1.5"/><rect x="13" y="19" width="22" height="3" fill="#e0b84e"/><rect x="21" y="27" width="5" height="8" fill="#e0b84e" opacity=".8"/></svg>
+  <div class="ttl"><b>عُمرتِي</b><small>UMRAHTI</small></div>
+  <button class="tbtn" id="bLang" onclick="setLang()" aria-label="Language">ع</button>
+  <button class="tbtn" id="bTheme" onclick="setTheme()" aria-label="Light or dark">🔅</button>
+  <button class="tbtn" id="bSen" onclick="setSenior()" aria-label="Senior view">👓</button>
+ </div>
+ <div class="pbar"><i id="pb"></i></div>
+</header>
+<main id="app"></main>
+<footer id="foot"></footer>
+<nav class="bnav"><div class="in" id="nav"></div></nav>
+<div class="ov" id="ov" onclick="if(event.target===this)closeM()"><div class="mdl" id="mdl"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ===== state ===== */
+var KEY='umrahti_v1';
+function dflt(){return{lang:'en',theme:null,senior:false,view:'guide',step:0,done:{},counts:{},tawaf:0,sai:0,route:'qr',card:{},wudu:false,flt:'all'}}
+var S=(function(){var d=dflt();try{var s=JSON.parse(localStorage.getItem(KEY)||'null');if(s){for(var k in s)d[k]=s[k];}}catch(e){}return d;})();
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function T(en,ar){return S.lang==='ar'?ar:en}
+function AN(n){return S.lang==='ar'?String(n).replace(/\d/g,function(d){return '٠١٢٣٤٥٦٧٨٩'[d]}):String(n)}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function buzz(p){try{if(navigator.vibrate)navigator.vibrate(p)}catch(e){}}
+function toast(m){var t=document.getElementById('toast');t.innerHTML=m;t.className='toast on';clearTimeout(toast._t);toast._t=setTimeout(function(){t.className='toast'},2400)}
+function openM(h){document.getElementById('mdl').innerHTML=h;document.getElementById('ov').className='ov on'}
+function closeM(){document.getElementById('ov').className='ov'}
+
+/* ===== authentic adhkar ===== */
+var D={
+safar:{ten:'Travel duʿāʾ (when boarding)',tar:'دعاء السفر (عند الركوب)',
+ar:'اللَّهُ أَكْبَرُ، اللَّهُ أَكْبَرُ، اللَّهُ أَكْبَرُ، سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ، وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ، اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى، وَمِنَ الْعَمَلِ مَا تَرْضَى، اللَّهُمَّ هَوِّنْ عَلَيْنَا سَفَرَنَا هَذَا وَاطْوِ عَنَّا بُعْدَهُ، اللَّهُمَّ أَنْتَ الصَّاحِبُ فِي السَّفَرِ، وَالْخَلِيفَةُ فِي الْأَهْلِ، اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ وَعْثَاءِ السَّفَرِ، وَكَآبَةِ الْمَنْظَرِ، وَسُوءِ الْمُنْقَلَبِ فِي الْمَالِ وَالْأَهْلِ',
+tr:"Allāhu akbar, Allāhu akbar, Allāhu akbar. Subḥānalladhī sakhkhara lanā hādhā wa mā kunnā lahu muqrinīn, wa innā ilā Rabbinā la-munqalibūn. Allāhumma innā nas'aluka fī safarinā hādhal-birra wat-taqwā, wa minal-ʿamali mā tarḍā. Allāhumma hawwin ʿalaynā safaranā hādhā waṭwi ʿannā buʿdah. Allāhumma antaṣ-ṣāḥibu fis-safar, wal-khalīfatu fil-ahl. Allāhumma innī aʿūdhu bika min waʿthā'is-safar, wa ka'ābatil-manẓar, wa sū'il-munqalabi fil-māli wal-ahl.",
+en:'Allah is the Greatest (×3). Glory be to Him Who has subjected this to us, for we could never have done it ourselves, and to our Lord we shall return. O Allah, we ask You on this journey for righteousness and piety, and deeds that please You. O Allah, make this journey easy and shorten its distance for us. O Allah, You are the Companion on the journey and the Guardian of the family. O Allah, I seek refuge in You from the hardship of travel, from distressing sights, and from an evil return in wealth and family.',
+sen:'Muslim 1342',sar:'رواه مسلم (1342)',n:0},
+niyyah:{ten:'Intention at the mīqāt',tar:'نية الإحرام عند الميقات',ar:'لَبَّيْكَ عُمْرَةً',tr:"Labbayka ʿUmrah",en:'Here I am (O Allah) for ʿUmrah.',sen:'Muslim 1251 (Anas) — the form taught by Ibn Bāz & Ibn ʿUthaymīn',sar:'أصله في صحيح مسلم (1251) من حديث أنس، وعليه فتوى ابن باز وابن عثيمين',n:1},
+shart:{ten:'Condition (only if you fear illness/obstacle)',tar:'الاشتراط (لمن خاف مانعًا كالمرض)',ar:'اللَّهُمَّ مَحِلِّي حَيْثُ حَبَسْتَنِي',tr:"Allāhumma maḥillī ḥaythu ḥabastanī",en:'O Allah, my place of release from iḥrām is wherever You hold me back.',sen:'al-Bukhārī 5089; Muslim 1207 (Ḍubāʿah bint az-Zubayr)',sar:'البخاري (5089)، ومسلم (1207) حديث ضباعة بنت الزبير',n:1},
+talbiyah:{ten:'Talbiyah — repeat often until ṭawāf begins',tar:'التلبية — أكثِر منها حتى تبدأ الطواف',ar:'لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لَا شَرِيكَ لَكَ لَبَّيْكَ، إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ، لَا شَرِيكَ لَكَ',tr:"Labbayk Allāhumma labbayk, labbayka lā sharīka laka labbayk, innal-ḥamda wan-niʿmata laka wal-mulk, lā sharīka lak.",en:'Here I am, O Allah, here I am. Here I am, You have no partner, here I am. Truly all praise, all blessings and all dominion are Yours. You have no partner.',sen:'al-Bukhārī 1549; Muslim 1184',sar:'البخاري (1549)، ومسلم (1184)',n:0},
+enter:{ten:'Entering the Masjid (right foot first)',tar:'دعاء دخول المسجد (بالرِّجل اليمنى)',ar:'أَعُوذُ بِاللَّهِ الْعَظِيمِ، وَبِوَجْهِهِ الْكَرِيمِ، وَسُلْطَانِهِ الْقَدِيمِ، مِنَ الشَّيْطَانِ الرَّجِيمِ. بِسْمِ اللَّهِ، وَالسَّلَامُ عَلَى رَسُولِ اللَّهِ، اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ',tr:"Aʿūdhu billāhil-ʿAẓīm, wa bi-wajhihil-karīm, wa sulṭānihil-qadīm, minash-shayṭānir-rajīm. Bismillāh, was-salāmu ʿalā Rasūlillāh. Allāhummaftaḥ lī abwāba raḥmatik.",en:'I seek refuge in Allah the Almighty, in His Noble Face and His eternal authority, from the accursed Shayṭān. In the name of Allah, and peace be upon the Messenger of Allah. O Allah, open for me the gates of Your mercy.',sen:'Abū Dāwūd 466; Muslim 713; Ibn Mājah 771 — ṣaḥīḥ (al-Albānī)',sar:'أبو داود (466)، ومسلم (713)، وابن ماجه (771) — صححه الألباني',n:1},
+exit:{ten:'Leaving the Masjid (left foot first)',tar:'دعاء الخروج من المسجد (بالرِّجل اليسرى)',ar:'بِسْمِ اللَّهِ، وَالسَّلَامُ عَلَى رَسُولِ اللَّهِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ',tr:"Bismillāh, was-salāmu ʿalā Rasūlillāh. Allāhumma innī as'aluka min faḍlik.",en:'In the name of Allah, and peace be upon the Messenger of Allah. O Allah, I ask You of Your bounty.',sen:'Muslim 713; Ibn Mājah 773 — ṣaḥīḥ (al-Albānī)',sar:'مسلم (713)، وابن ماجه (773) — صححه الألباني',n:0},
+hajar:{ten:'At the Black Stone — start of every round',tar:'عند الحجر الأسود — بداية كل شوط',ar:'بِسْمِ اللَّهِ، وَاللَّهُ أَكْبَرُ',tr:"Bismillāh, wallāhu akbar",en:'In the name of Allah; Allah is the Greatest.',sen:'Takbīr: al-Bukhārī 1613. "Bismillāh" from Ibn ʿUmar (al-Bayhaqī) — authenticated by al-Albānī',sar:'التكبير: البخاري (1613)، والتسمية ثابتة عن ابن عمر (البيهقي) — صححها الألباني',n:8},
+yamani:{ten:'Between the Yamani corner and the Black Stone',tar:'بين الركن اليماني والحجر الأسود',ar:'رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ',tr:"Rabbanā ātinā fid-dunyā ḥasanah, wa fil-ākhirati ḥasanah, wa qinā ʿadhāban-nār.",en:'Our Lord, give us good in this world and good in the Hereafter, and protect us from the punishment of the Fire.',sen:'Abū Dāwūd 1892 — ḥasan (al-Albānī); al-Baqarah 2:201',sar:'أبو داود (1892) — حسنه الألباني؛ البقرة: 201',n:7},
+maqam:{ten:'Approaching Maqām Ibrāhīm',tar:'عند التوجه إلى مقام إبراهيم',ar:'وَاتَّخِذُوا مِن مَّقَامِ إِبْرَاهِيمَ مُصَلًّى',tr:"Wattakhidhū min maqāmi Ibrāhīma muṣallā",en:'"And take the station of Ibrāhīm as a place of prayer." (al-Baqarah 2:125)',sen:'Muslim 1218 (Jābir)',sar:'مسلم (1218) حديث جابر',n:1},
+zamzam:{ten:'Zamzam — drink and make duʿāʾ',tar:'زمزم — اشرب وادعُ',ar:'مَاءُ زَمْزَمَ لِمَا شُرِبَ لَهُ',tr:"Mā'u Zamzama limā shuriba lah",en:'"Zamzam water is for whatever it is drunk for." Drink with the intention you wish, then ask Allah for it.',sen:'Ibn Mājah 3062 — ṣaḥīḥ (al-Albānī)',sar:'ابن ماجه (3062) — صححه الألباني',n:0},
+safa1:{ten:'Approaching aṣ-Ṣafā — FIRST time only',tar:'عند الدنو من الصفا — أول مرة فقط',ar:'إِنَّ الصَّفَا وَالْمَرْوَةَ مِن شَعَائِرِ اللَّهِ — أَبْدَأُ بِمَا بَدَأَ اللَّهُ بِهِ',tr:"Innaṣ-Ṣafā wal-Marwata min shaʿā'irillāh — Abda'u bimā bada'allāhu bih",en:'"Indeed aṣ-Ṣafā and al-Marwah are among the symbols of Allah." (2:158) — I begin with what Allah began with.',sen:'Muslim 1218 (Jābir)',sar:'مسلم (1218) حديث جابر',n:1},
+safa:{ten:'On Ṣafā & Marwah — face the Kaʿbah, raise hands, say it 3 times with duʿāʾ in between',tar:'على الصفا والمروة — استقبل القبلة وارفع يديك، وقلها ثلاثًا تدعو بينها',ar:'اللَّهُ أَكْبَرُ، اللَّهُ أَكْبَرُ، اللَّهُ أَكْبَرُ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ، أَنْجَزَ وَعْدَهُ، وَنَصَرَ عَبْدَهُ، وَهَزَمَ الْأَحْزَابَ وَحْدَهُ',tr:"Allāhu akbar, Allāhu akbar, Allāhu akbar. Lā ilāha illallāhu waḥdahu lā sharīka lah, lahul-mulku wa lahul-ḥamd, wa huwa ʿalā kulli shay'in qadīr. Lā ilāha illallāhu waḥdah, anjaza waʿdah, wa naṣara ʿabdah, wa hazamal-aḥzāba waḥdah.",en:'Allah is the Greatest (×3). None has the right to be worshipped but Allah alone, without partner; His is the dominion and His is the praise, and He is over all things capable. None has the right to be worshipped but Allah alone; He fulfilled His promise, gave victory to His servant, and alone defeated the confederates.',sen:'Muslim 1218 (Jābir); takbīr: an-Nasāʾī — ṣaḥīḥ (al-Albānī)',sar:'مسلم (1218) حديث جابر؛ والتكبير عند النسائي — صححه الألباني',n:24},
+green:{ten:'Between the green lights (men run)',tar:'بين العَلَمين الأخضرين (يسعى الرجل سعيًا شديدًا)',ar:'رَبِّ اغْفِرْ وَارْحَمْ، إِنَّكَ أَنْتَ الْأَعَزُّ الْأَكْرَمُ',tr:"Rabbighfir warḥam, innaka antal-Aʿazzul-Akram",en:'My Lord, forgive and have mercy; You are the Most Mighty, the Most Generous.',sen:'Mawqūf from Ibn Masʿūd & Ibn ʿUmar (Ibn Abī Shaybah) — authenticated by al-Albānī. No specific duʿāʾ from the Prophet ﷺ is established here; any duʿāʾ is fine.',sar:'ثابت موقوفًا عن ابن مسعود وابن عمر (ابن أبي شيبة) — صححه الألباني. ولم يثبت عن النبي ﷺ دعاء مخصوص هنا، فادعُ بما شئت.',n:7}
+};
+function dua(k){var d=D[k],c=S.counts[k]||0;
+var h='<div class="dua"><div class="dh">'+T(d.ten,d.tar)+'</div><p class="art" lang="ar">'+d.ar+'</p>';
+if(S.lang==='en')h+='<p class="fr"><b>Franco:</b> '+d.tr+'</p><p class="mn"><b>Meaning:</b> '+d.en+'</p>';
+h+='<div class="src">📚 '+T(d.sen,d.sar)+'</div><div class="tally"><button class="btn sm gold" onclick="tally(\''+k+'\',1)">＋ '+T('I said it','قلتُها')+'</button><span class="cnt" id="c_'+k+'">'+AN(c)+(d.n?' / '+AN(d.n):'')+'</span><button class="btn sm ghost" onclick="tally(\''+k+'\',0)" aria-label="reset">↺</button></div></div>';return h}
+function tally(k,a){S.counts[k]=a?(S.counts[k]||0)+1:0;save();var d=D[k];document.getElementById('c_'+k).innerHTML=AN(S.counts[k])+(d.n?' / '+AN(d.n):'');buzz(25);if(d.n&&S.counts[k]===d.n){buzz([60,40,60]);toast('✓ '+T('Done','تم'))}}
+function chk(id,en,ar){return '<label class="chk"><input type="checkbox" '+(S.done[id]?'checked':'')+' onchange="tick(\''+id+'\',this.checked)"><span>'+T(en,ar)+'</span></label>'}
+function tick(id,v){S.done[id]=v;save();prog();buzz(15)}
+
+/* ===== miqat routes ===== */
+var MQ={
+dhul:{en:'Dhul-Ḥulayfah (Abyār ʿAlī)',ar:'ذو الحليفة (أبيار علي)',km:'≈ 420 km',x:238,y:30},
+juh:{en:'al-Juḥfah (parallel to Rābigh)',ar:'الجحفة (محاذاة رابغ)',km:'≈ 186 km',x:132,y:95},
+qrn:{en:'Qarn al-Manāzil (as-Sayl al-Kabīr)',ar:'قرن المنازل (السيل الكبير)',km:'≈ 78 km',x:282,y:160},
+ylm:{en:'Yalamlam (as-Saʿdiyyah)',ar:'يلملم (السعدية)',km:'≈ 100 km',x:220,y:262},
+dhat:{en:'Dhāt ʿIrq',ar:'ذات عرق',km:'≈ 100 km',x:272,y:100},
+tan:{en:'at-Tanʿīm — Masjid ʿĀʾishah',ar:'التنعيم — مسجد عائشة',km:'≈ 7.5 km',x:196,y:150}};
+var RT={
+et:{en:'Ethiopian',ar:'الإثيوبية',hub:['Addis Ababa (ADD)','أديس أبابا'],mq:'ylm',p:'M4,296 Q70,250 118,184',cx:62,cy:251,
+ n:['Flights from Addis cross the Red Sea from the south-west; the mīqāt line is parallel to Yalamlam (al-Juḥfah on some routings). Follow the crew announcement.','تعبر رحلات أديس أبابا البحر الأحمر من الجنوب الغربي، والميقات محاذاة يلملم (أو الجحفة بحسب المسار). اتبع إعلان الطاقم.']},
+qr:{en:'Qatar Airways',ar:'القطرية',hub:['Doha (DOH)','الدوحة'],mq:'qrn',p:'M360,150 Q300,150 230,166 Q170,180 118,184',cx:282,cy:154,
+ n:['Doha → Jeddah approaches from the east, passing over/parallel to Qarn al-Manāzil roughly 15–20 min before landing.','رحلة الدوحة ← جدة تأتي من الشرق وتمر فوق قرن المنازل أو بمحاذاته قبل الهبوط بنحو ١٥–٢٠ دقيقة.']},
+ek:{en:'Emirates',ar:'الإماراتية',hub:['Dubai (DXB)','دبي'],mq:'qrn',p:'M360,140 Q300,148 230,166 Q170,180 118,184',cx:282,cy:153,
+ n:['Dubai → Jeddah approaches from the east, over/parallel to Qarn al-Manāzil.','رحلة دبي ← جدة من الشرق فوق قرن المنازل أو بمحاذاته.']},
+ey:{en:'Etihad',ar:'الاتحاد',hub:['Abu Dhabi (AUH)','أبوظبي'],mq:'qrn',p:'M360,160 Q300,156 230,168 Q170,180 118,184',cx:282,cy:158,
+ n:['Abu Dhabi → Jeddah approaches from the east, over/parallel to Qarn al-Manāzil.','رحلة أبوظبي ← جدة من الشرق فوق قرن المنازل أو بمحاذاته.']},
+ms:{en:'EgyptAir',ar:'مصر للطيران',hub:['Cairo (CAI)','القاهرة'],mq:'juh',p:'M40,0 Q95,95 118,184',cx:96,cy:95,
+ n:['Cairo → Jeddah comes from the north-west, parallel to al-Juḥfah (Rābigh).','رحلة القاهرة ← جدة من الشمال الغربي بمحاذاة الجحفة (رابغ).']},
+tk:{en:'Turkish',ar:'التركية',hub:['Istanbul (IST)','إسطنبول'],mq:'juh',p:'M150,0 Q120,95 118,184',cx:126,cy:95,
+ n:['Istanbul → Jeddah comes from the north, usually parallel to al-Juḥfah (Rābigh); some routings pass Dhul-Ḥulayfah — follow the crew.','رحلة إسطنبول ← جدة من الشمال، غالبًا بمحاذاة الجحفة (رابغ)، وقد تمر بعض المسارات بذي الحليفة — اتبع الطاقم.']},
+med:{en:'From Madinah',ar:'من المدينة',mq:'dhul',p:'M262,12 L238,30 Q232,110 205,175',cx:238,cy:30},
+ai:{en:'Masjid ʿĀʾishah',ar:'مسجد عائشة',mq:'tan',p:'M205,175 Q215,160 196,150 Q188,162 205,175',cx:196,cy:150}};
+function mapSVG(){var r=RT[S.route],m=MQ[r.mq],h='<svg class="map" viewBox="0 0 360 300" role="img" aria-label="Miqat map">';
+h+='<path d="M0,0 L150,0 C140,60 118,100 114,140 C111,170 112,200 128,240 C140,270 150,290 160,300 L0,300 Z" fill="var(--sea)"/>';
+h+='<text x="40" y="160" fill="var(--info)" font-size="11" font-weight="700" transform="rotate(-70 40 160)">'+T('RED SEA','البحر الأحمر')+'</text>';
+for(var k in MQ){var q=MQ[k],on=k===r.mq;h+='<circle cx="'+q.x+'" cy="'+q.y+'" r="'+(on?7:5)+'" fill="'+(on?'var(--gd)':'var(--mut)')+'" stroke="var(--sf)" stroke-width="2"/>';
+ if(k!=='tan'||on)h+='<text x="'+(q.x+(q.x>250?-6:9))+'" y="'+(q.y-9)+'" font-size="'+(on?11:9)+'" font-weight="'+(on?800:600)+'" fill="'+(on?'var(--br)':'var(--mut)')+'" text-anchor="'+(q.x>250?'end':'start')+'">'+(S.lang==='ar'?q.ar.split(' (')[0].split(' —')[0]:q.en.split(' (')[0].split(' —')[0])+'</text>';}
+h+='<path class="rt" id="rp" d="'+r.p+'"/>';
+if(r.mq!=='tan'&&r.mq!=='dhul')h+='<line x1="'+m.x+'" y1="'+m.y+'" x2="'+r.cx+'" y2="'+r.cy+'" stroke="var(--gd)" stroke-width="1.5" stroke-dasharray="2 4"/><circle cx="'+r.cx+'" cy="'+r.cy+'" r="6" fill="var(--bad)"/><circle class="pulse" cx="'+r.cx+'" cy="'+r.cy+'" r="6" fill="var(--bad)"/><text x="'+r.cx+'" y="'+(r.cy+20)+'" font-size="10" font-weight="800" fill="var(--bad)" text-anchor="middle">'+T('NIYYAH HERE','النية هنا')+'</text>';
+else h+='<circle class="pulse" cx="'+m.x+'" cy="'+m.y+'" r="7" fill="var(--bad)"/>';
+h+='<circle r="5" fill="var(--bad)"><animateMotion dur="5s" repeatCount="indefinite" path="'+r.p+'"/></circle>';
+h+='<rect x="198" y="168" width="14" height="14" fill="#1d1309" stroke="var(--gd)" stroke-width="2"/><text x="218" y="190" font-size="12" font-weight="800" fill="var(--ink)">'+T('Makkah','مكة')+'</text>';
+h+='<circle cx="118" cy="184" r="4" fill="var(--ink)"/><text x="122" y="200" font-size="10" fill="var(--ink)" font-weight="700">'+T('Jeddah','جدة')+'</text>';
+h+='<text x="262" y="12" font-size="10" fill="var(--ink)" font-weight="700" text-anchor="end">'+T('Madinah ↑','المدينة ↑')+'</text>';
+h+='<text x="354" y="294" font-size="8" fill="var(--mut)" text-anchor="end">'+T('Schematic · not to scale','مخطط توضيحي · ليس بمقياس رسم')+'</text></svg>';return h}
+function routeInfo(){var r=RT[S.route],m=MQ[r.mq],h='<div class="card gold"><div class="row sp"><h3 style="margin:0">📍 '+T(m.en,m.ar)+'</h3><span class="pill">'+T('from Makkah ','من مكة ')+m.km+'</span></div><ul class="tl">';
+function li(i,t){return '<li><b class="k">'+AN(i)+'</b>'+t+'</li>'}
+if(r.hub){h+=li(1,T('Bath, perfume your body (men) and put on iḥrām garments at '+r.hub[0]+' before boarding the flight to Jeddah — or carry them in hand luggage and change on board well before the mīqāt.','اغتسل وتطيّب في بدنك (للرجال) والبس ثياب الإحرام في مطار '+r.hub[1]+' قبل صعود رحلة جدة — أو احملها في حقيبة اليد والبسها في الطائرة قبل الميقات بوقت كافٍ.'));
+h+=li(2,T(r.n[0],r.n[1]));
+h+=li(3,T('When the crew announces the mīqāt, make niyyah: <b>"Labbayka ʿUmrah"</b>. No announcement? Make it ~30–40 min before landing — a little early is valid; late is not (Ibn Bāz, Ibn ʿUthaymīn).','عند إعلان الطاقم عن الميقات انوِ وقل: <b>«لبيك عمرة»</b>. إن لم يُعلَن فأحرم قبل الهبوط بنحو ٣٠–٤٠ دقيقة؛ التقدّم اليسير صحيح والتأخير لا يجوز (ابن باز، ابن عثيمين).'));
+h+=li(4,T('Start the Talbiyah immediately.','ابدأ التلبية فورًا.'));
+h+='</ul><div class="note r">'+T('⚠️ <b>Jeddah airport is NOT your mīqāt.</b> Do not wait to land (Ibn Bāz, Ibn ʿUthaymīn). If your connection lands in <b>Madinah</b> first, do not enter iḥrām on this flight — choose "From Madinah".','⚠️ <b>مطار جدة ليس ميقاتًا لك.</b> لا تؤخر الإحرام حتى الهبوط (ابن باز، ابن عثيمين). وإن كانت رحلتك إلى <b>المدينة</b> أولًا فلا تُحرم في هذه الرحلة — اختر «من المدينة».')+'</div>';}
+else if(S.route==='med'){h+=li(1,T('Bath, perfume and wear iḥrām at your Madinah hotel.','اغتسل وتطيّب والبس الإحرام في فندقك بالمدينة.'));
+h+=li(2,T('<b>🚌 Bus/car:</b> it stops at Dhul-Ḥulayfah (Masjid ash-Shajarah) — make niyyah there.','<b>🚌 الحافلة/السيارة:</b> تتوقف عند ذي الحليفة (مسجد الشجرة) — انوِ هناك.'));
+h+=li(3,T('<b>🚄 Ḥaramain train:</b> does NOT stop at the mīqāt. Make niyyah as the train departs Madinah — entering iḥrām slightly before the mīqāt is valid (Ibn Bāz).','<b>🚄 قطار الحرمين:</b> لا يتوقف عند الميقات، فانوِ عند تحرك القطار من المدينة — والإحرام قبل الميقات بقليل صحيح (ابن باز).'));
+h+=li(4,T('<b>✈️ Domestic flight to Jeddah:</b> make niyyah at take-off; the aircraft passes Dhul-Ḥulayfah within minutes.','<b>✈️ رحلة داخلية إلى جدة:</b> انوِ عند الإقلاع، فالطائرة تحاذي ذا الحليفة خلال دقائق.'));h+='</ul>';}
+else{h+=li(1,T('<b>Who uses it?</b> Only those already inside Makkah (residents, or those who came without intending ʿUmrah) go out to the nearest ḥill — at-Tanʿīm (Masjid ʿĀʾishah) — as ʿĀʾishah did (al-Bukhārī 1785; Muslim 1211).','<b>لمن؟</b> لمن كان داخل مكة فقط (المقيم، أو من قدمها دون نية العمرة)، فيخرج إلى أدنى الحِل — التنعيم (مسجد عائشة) — كما فعلت عائشة رضي الله عنها (البخاري 1785، مسلم 1211).'));
+h+=li(2,T('Bath and wear iḥrām (at the hotel or the masjid), make niyyah and Talbiyah there, then return to the Ḥaram.','اغتسل والبس الإحرام (في الفندق أو المسجد)، وانوِ ولبِّ هناك، ثم عُد إلى الحرم.'));h+='</ul>';
+h+='<div class="note r">'+T('⚠️ If you came from South Africa intending ʿUmrah, at-Tanʿīm is NOT your mīqāt — you had to enter iḥrām on your route; otherwise a dam is due (Ibn Bāz).','⚠️ إن قدمت من جنوب أفريقيا تريد العمرة فالتنعيم ليس ميقاتك، بل يلزمك الإحرام من ميقات طريقك، وإلا لزمك دم (ابن باز).')+'</div><div class="note">'+T('Repeating ʿUmrah many times from at-Tanʿīm was not the practice of the Prophet ﷺ and his Companions; extra ṭawāf is better (Ibn ʿUthaymīn).','تكرار العمرة من التنعيم مرارًا لم يكن من هدي النبي ﷺ وأصحابه، والإكثار من الطواف أفضل (ابن عثيمين).')+'</div>';}
+return h+'</div>'}
+function setRoute(k){S.route=k;save();render(true)}
+
+/* ===== ihram figures ===== */
+function figs(){function man(bare){return '<svg viewBox="0 0 120 170"><circle cx="60" cy="26" r="15" fill="#c99a6b"/><rect x="34" y="88" width="52" height="58" rx="6" fill="#fff" stroke="#b8891d" stroke-width="2"/>'+(bare?'<path d="M30 46 Q60 40 92 46 L92 92 L30 92 Z" fill="#c99a6b"/><path d="M28 46 Q46 42 62 48 L92 92 L36 96 L28 60 Z" fill="#fff" stroke="#b8891d" stroke-width="2"/>':'<path d="M28 46 Q60 38 92 46 L94 96 L26 96 Z" fill="#fff" stroke="#b8891d" stroke-width="2"/>')+'<rect x="40" y="146" width="14" height="18" rx="4" fill="#c99a6b"/><rect x="66" y="146" width="14" height="18" rx="4" fill="#c99a6b"/><rect x="36" y="162" width="20" height="5" rx="2" fill="#6b4423"/><rect x="64" y="162" width="20" height="5" rx="2" fill="#6b4423"/></svg>'}
+return '<div class="fig"><figure>'+man(0)+'<figcaption>'+T('Normal iḥrām','الإحرام المعتاد')+'</figcaption></figure><figure>'+man(1)+'<figcaption>'+T('Iḍṭibāʿ (ṭawāf only)','الاضطباع (في الطواف فقط)')+'</figcaption></figure></div>'}
+
+/* ===== counters ===== */
+function ring(n,tot){var c=60,r=48,o='';for(var i=0;i<tot;i++){var st=360/tot,a0=(-90-i*st-5)*Math.PI/180,a1=(-90-(i+1)*st+5)*Math.PI/180;o+='<path class="seg'+(i<n?' on':(i===n?' nx':''))+'" d="M'+(c+r*Math.cos(a0)).toFixed(1)+' '+(c+r*Math.sin(a0)).toFixed(1)+' A'+r+' '+r+' 0 0 0 '+(c+r*Math.cos(a1)).toFixed(1)+' '+(c+r*Math.sin(a1)).toFixed(1)+'"/>'}
+return '<svg class="ring" viewBox="0 0 120 120">'+o+'<rect x="49" y="49" width="22" height="22" fill="#1d1309" stroke="var(--gd)" stroke-width="1.5"/><rect x="49" y="54" width="22" height="3" fill="var(--gd)"/><circle cx="49" cy="70" r="2.6" fill="var(--bad)"/><text x="60" y="98" text-anchor="middle" font-size="8" fill="var(--mut)">↺ '+T('anticlockwise','عكس عقارب الساعة')+'</text></svg>'}
+function tawafW(){var n=S.tawaf,h='<div class="card gold ctr" id="tw"><h2>🔄 '+T('Ṭawāf counter','عدّاد الطواف')+'</h2>'+ring(n,7)+'<div class="big">'+AN(n)+' / '+AN(7)+'</div><div class="hint">';
+if(n>=7)h+=T('✅ <b>7 rounds complete!</b> Cover your right shoulder → go to Maqām Ibrāhīm.','✅ <b>اكتملت الأشواط السبعة!</b> غطِّ كتفك الأيمن ← اتجه إلى مقام إبراهيم.');
+else{var r=n+1;h+='<b>'+T('Now walking round '+r+' of 7','أنت الآن في الشوط '+AN(r)+' من ٧')+'</b><br>'+(r<=3?T('🏃 Men: raml — brisk, short steps (if easy)','🏃 للرجال: الرَّمَل — إسراع المشي مع مقاربة الخطى إن تيسّر'):T('🚶 Walk normally','🚶 امشِ مشيًا عاديًا'))+'<br>'+T('At the Yamani corner → "Rabbanā ātinā…" until the Black Stone','من الركن اليماني حتى الحجر: «ربنا آتنا في الدنيا حسنة…»');}
+h+='</div>'+(n<7?'<button class="btn gold xl" onclick="tw(1)">✓ '+T('Finished round '+(n+1)+' (back at the Black Stone)','أنهيت الشوط '+AN(n+1)+' (عند الحجر الأسود)')+'</button>':'<button class="btn xl" onclick="go(\'tawaf2\')">🕌 '+T('Next: Maqām & Zamzam','التالي: المقام وزمزم')+'</button>')+'<div class="row" style="justify-content:center;margin-top:10px"><button class="btn sm ghost" onclick="tw(-1)">↶ '+T('Undo','تراجع')+'</button><button class="btn sm ghost" onclick="rs(\'tawaf\')">↺ '+T('Reset','تصفير')+'</button><button class="btn sm ghost" onclick="awake()">🔆 '+T('Keep screen on','إبقاء الشاشة')+'</button></div><div class="src">'+T('In doubt during ṭawāf? Take the lower number (Ibn Bāz).','إذا شككت أثناء الطواف فابنِ على الأقل (ابن باز).')+'</div></div>';return h}
+function tw(d){if(d>0&&S.tawaf===0&&!S.wudu){openM('<h2>💧 '+T('Are you in wuḍūʾ?','هل أنت على وضوء؟')+'</h2><p>'+T('Ṭawāf requires wuḍūʾ (Ibn Bāz and the majority). Drink Zamzam and check yourself now.','الطواف يُشترط له الوضوء (ابن باز والجمهور). اشرب من زمزم وتأكّد الآن.')+'</p><div class="row"><button class="btn gold" onclick="S.wudu=true;save();closeM();tw(1)">✓ '+T('Yes, I have wuḍūʾ','نعم، أنا متوضئ')+'</button><button class="btn ghost" onclick="closeM();toast(\''+T('Make wuḍūʾ first — your ṭawāf has not started','توضأ أولًا — لم يبدأ طوافك بعد')+'\')">'+T('No','لا')+'</button></div>');return}
+S.tawaf=Math.max(0,Math.min(7,S.tawaf+d));save();buzz(d>0?40:15);if(S.tawaf===7&&d>0){buzz([80,50,80,50,160]);S.done.tawaf_c=true;save()}
+var el=document.getElementById('tw');if(el)el.outerHTML=tawafW();prog()}
+function saiW(){var n=S.sai,sf=T('Ṣafā','الصفا'),mw=T('Marwah','المروة'),atM=n%2===1,x=n===0?40:(atM?320:40);
+var h='<div class="card gold ctr" id="sw"><h2>🚶 '+T('Saʿy counter','عدّاد السعي')+'</h2><svg class="track" viewBox="0 0 360 90"><rect x="20" y="38" width="320" height="14" rx="7" fill="var(--sf2)" stroke="var(--ln)"/><rect x="140" y="38" width="80" height="14" fill="#2e7d4f" opacity=".75"/><text x="180" y="30" text-anchor="middle" font-size="10" fill="var(--ok)" font-weight="800">'+T('green lights — men run','العلمان — يسعى الرجل')+'</text><circle cx="40" cy="45" r="16" fill="var(--br)"/><text x="40" y="80" text-anchor="middle" font-size="12" font-weight="800" fill="var(--ink)">'+sf+'</text><circle cx="320" cy="45" r="16" fill="var(--br)"/><text x="320" y="80" text-anchor="middle" font-size="12" font-weight="800" fill="var(--ink)">'+mw+'</text><circle cx="'+x+'" cy="45" r="9" fill="var(--gd2)" stroke="#2b1a05" stroke-width="2" style="transition:cx .6s"/></svg><div class="big">'+AN(n)+' / '+AN(7)+'</div><div class="row" style="justify-content:center;gap:6px;margin:8px 0">';
+for(var i=0;i<7;i++)h+='<span style="width:26px;height:26px;border-radius:50%;display:inline-grid;place-items:center;font-size:.75rem;font-weight:800;'+(i<n?'background:var(--gd);color:#2b1a05':'border:1.5px solid var(--ln);color:var(--mut)')+'">'+AN(i+1)+'</span>';
+h+='</div><div class="hint">';
+if(n>=7)h+=T('✅ <b>Saʿy complete — you end at Marwah.</b> Now shave or trim.','✅ <b>تم السعي — وينتهي عند المروة.</b> الآن الحلق أو التقصير.');
+else{var r=n+1,from=r%2?sf:mw,to=r%2?mw:sf;h+='<b>'+T('Leg '+r+': '+from+' → '+to,'الشوط '+AN(r)+': من '+from+' ← إلى '+to)+'</b><br>'+(n===0?T('At Ṣafā first: recite the verse, then dhikr ×3 facing the Kaʿbah','عند الصفا أولًا: اقرأ الآية، ثم الذكر ثلاثًا مستقبلًا الكعبة'):T('On arrival at '+to+': face the Kaʿbah, dhikr ×3 with duʿāʾ','عند وصولك '+to+': استقبل الكعبة واذكر ثلاثًا مع الدعاء'))+'<br>'+T('Men run between the green lights','يسعى الرجل بين العلمين الأخضرين');}
+h+='</div>'+(n<7?'<button class="btn gold xl" onclick="sa(1)">✓ '+T('Reached '+((n+1)%2?mw:sf)+' (leg '+(n+1)+')','وصلتُ '+((n+1)%2?mw:sf)+' (الشوط '+AN(n+1)+')')+'</button>':'<button class="btn xl" onclick="go(\'halq\')">✂️ '+T('Next: Shave / Trim','التالي: الحلق أو التقصير')+'</button>')+'<div class="row" style="justify-content:center;margin-top:10px"><button class="btn sm ghost" onclick="sa(-1)">↶ '+T('Undo','تراجع')+'</button><button class="btn sm ghost" onclick="rs(\'sai\')">↺ '+T('Reset','تصفير')+'</button><button class="btn sm ghost" onclick="awake()">🔆 '+T('Keep screen on','إبقاء الشاشة')+'</button></div><div class="src">'+T('Ṣafā → Marwah = 1 · Marwah → Ṣafā = 2 · ends at Marwah on 7','الصفا ← المروة = ١ · المروة ← الصفا = ٢ · ينتهي عند المروة في السابع')+'</div></div>';return h}
+function sa(d){S.sai=Math.max(0,Math.min(7,S.sai+d));save();buzz(d>0?40:15);if(S.sai===7&&d>0){buzz([80,50,80,50,160]);S.done.sai_c=true;save()}var el=document.getElementById('sw');if(el)el.outerHTML=saiW();prog()}
+function rs(k){if(confirm(T('Reset the counter?','تصفير العداد؟'))){S[k]=0;save();render(true)}}
+var WL=null;function awake(){try{if('wakeLock' in navigator){navigator.wakeLock.request('screen').then(function(l){WL=l;toast('🔆 '+T('Screen will stay on','ستبقى الشاشة مضاءة'))}).catch(function(){toast(T('Not allowed here — set Auto-Lock to "Never" in phone settings','غير متاح — اضبط القفل التلقائي على «أبدًا» من إعدادات الهاتف'))})}else toast(T('Set Auto-Lock to "Never" in phone settings','اضبط القفل التلقائي على «أبدًا» من إعدادات الهاتف'))}catch(e){}}
+
+function zz(){return '<div class="zz"><span class="e">💧</span><div style="flex:1"><b>'+T('Zamzam & wuḍūʾ check','زمزم وتفقّد الوضوء')+'</b><br><span style="font-size:.9rem">'+T('Drink Zamzam at the coolers and ask yourself: am I still in wuḍūʾ?','اشرب من زمزم عند البرادات واسأل نفسك: هل ما زلت على وضوء؟')+'</span></div><label class="row" style="gap:6px;font-weight:800"><input type="checkbox" style="width:26px;height:26px;accent-color:#b8891d" '+(S.wudu?'checked':'')+' onchange="S.wudu=this.checked;save();toast(this.checked?\'✓\':\'💧\')">'+T('In wuḍūʾ','متوضئ')+'</label></div>'}
+function inp(k,en,ar,ph){return '<div class="fld"><label>'+T(en,ar)+'</label><input value="'+esc(S.card[k])+'" placeholder="'+esc(ph||'')+'" oninput="S.card[\''+k+'\']=this.value;save()"></div>'}
+function area(k,en,ar,ph){return '<div class="fld"><label>'+T(en,ar)+'</label><textarea placeholder="'+esc(ph||'')+'" oninput="S.card[\''+k+'\']=this.value;save()">'+esc(S.card[k])+'</textarea></div>'}
+
+/* ===== guide steps ===== */
+var STEPS=[
+{id:'start',e:'🕋',en:'Start',ar:'البداية',h:function(){var nx=0;for(var i=1;i<STEPS.length;i++){if(!S.done['st_'+STEPS[i].id]){nx=i;break}}
+var g='';for(var i=1;i<STEPS.length;i++)g+='<button class="tile'+(S.done['st_'+STEPS[i].id]?' dn':'')+'" onclick="goStep('+i+')"><span class="e">'+STEPS[i].e+'</span>'+AN(i)+'. '+T(STEPS[i].en,STEPS[i].ar)+'</button>';
+return '<div class="card gold hero"><p class="bism">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p><h1>'+T('Your ʿUmrah, step by step','عمرتك خطوة بخطوة')+'</h1><p class="lead">'+T('A smart companion for pilgrims from South Africa — authentic Sunnah only.','رفيق ذكي للمعتمرين من جنوب أفريقيا — وفق السنة الصحيحة فقط.')+'</p><button class="btn gold xl" onclick="goStep('+(nx||1)+')">'+(nx>1?'▶ '+T('Continue: '+STEPS[nx].en,'تابع: '+STEPS[nx].ar):'▶ '+T('Begin','ابدأ'))+'</button>'+(S.senior?'':'<p style="margin:12px 0 0"><button class="btn ghost" onclick="setSenior()">👓 '+T('Senior view — large text','عرض كبار السن — خط كبير')+'</button></p>')+'</div>'
++'<div class="card"><h2>'+T('ʿUmrah at a glance','العمرة باختصار')+'</h2><p style="font-size:1.1rem;font-weight:800;text-align:center">'+T('Iḥrām → Ṭawāf → Saʿy → Shave/Trim','الإحرام ← الطواف ← السعي ← الحلق أو التقصير')+'</p><ul class="lst"><li>'+T('<b>Pillars (arkān):</b> iḥrām (intention), ṭawāf, saʿy.','<b>الأركان:</b> الإحرام (النية)، والطواف، والسعي.')+'</li><li>'+T('<b>Obligations (wājibāt):</b> iḥrām from the mīqāt; shaving or trimming.','<b>الواجبات:</b> الإحرام من الميقات، والحلق أو التقصير.')+'</li></ul></div><div class="grid">'+g+'</div>'
++'<div class="note b">'+T('Rulings follow Ibn Bāz, Ibn ʿUthaymīn and al-Albānī, with ṣaḥīḥ/ḥasan evidence only. This is a guide, not a fatwā — ask a trusted scholar about your personal case.','الأحكام وفق ابن باز وابن عثيمين والألباني، وبالأدلة الصحيحة والحسنة فقط. هذا دليل إرشادي وليس فتوى — اسأل عالمًا موثوقًا عن حالتك الخاصة.')+'</div>'}},
+{id:'prep',e:'🛁',en:'Prepare',ar:'الاستعداد',h:function(){return '<div class="card"><h2>🧳 '+T('Before you travel','قبل السفر')+'</h2>'
++chk('p1','Sincere intention for Allah alone, repentance, settle debts & rights, write your will (waṣiyyah)','إخلاص النية لله، والتوبة، وردّ الحقوق والديون، وكتابة الوصية')
++chk('p2','Passport, visa & ʿUmrah permit (Nusuk app)','جواز السفر والتأشيرة وتصريح العمرة (تطبيق نسك)')
++chk('p3','Meningococcal ACWY vaccine certificate — confirm current Saudi MoH rules with your travel clinic','شهادة لقاح الحمى الشوكية ACWY — تحقق من اشتراطات وزارة الصحة السعودية الحالية')
++chk('p4','Men: 2 sets of iḥrām, belt/pouch, sandals','للرجال: طقمان إحرام، حزام، نعال')
++chk('p5','Unscented soap, shampoo, deodorant & sunscreen (for use in iḥrām)','صابون وشامبو ومزيل عرق وواقي شمس بلا رائحة (للاستعمال أثناء الإحرام)')
++chk('p6','Chronic medicines + 7 days extra in HAND luggage, with a doctor\'s letter','الأدوية المزمنة مع زيادة ٧ أيام في حقيبة اليد مع خطاب الطبيب')
++chk('p7','Unscented petroleum jelly against chafing (long walking)','فازلين بلا رائحة لمنع التسلّخ (المشي الطويل)')
++chk('p8','Small bag for shoes, refillable bottle, power bank','كيس للأحذية، قارورة ماء، شاحن متنقل')
++chk('p9','Fill in "My Card": hotel, contacts, medicines','تعبئة «بطاقتي»: الفندق، أرقام الطوارئ، الأدوية')
++'</div>'+dua('safar')
++'<div class="card"><h2>🛁 '+T('At iḥrām time — Sunnah steps','عند الإحرام — السنن')+'</h2><ol class="flow"><li>'+T('<b>Cleanliness:</b> trim nails & moustache, remove underarm and pubic hair — if needed (Ibn ʿUthaymīn).','<b>التنظّف:</b> تقليم الأظفار وقص الشارب ونتف الإبط وحلق العانة — إن احتاج (ابن عثيمين).')+'</li><li>'+T('<b>Ghusl</b> (full bath, like for janābah) — Sunnah for men & women, even during menses/postnatal bleeding.','<b>الاغتسال</b> كغسل الجنابة — سنة للرجال والنساء، حتى الحائض والنفساء.')+'<div class="src">📚 '+T('at-Tirmidhī 830 (Zayd ibn Thābit) — ṣaḥīḥ (al-Albānī); Muslim 1209 (Asmāʾ bint ʿUmays)','الترمذي (830) حديث زيد بن ثابت — صححه الألباني؛ مسلم (1209) حديث أسماء بنت عميس')+'</div></li><li>'+T('<b>Fragrance (ʿūd / musk) — men:</b> on head & beard BEFORE niyyah; it may remain afterwards. ʿĀʾishah perfumed the Prophet ﷺ for his iḥrām, and the shine of musk was seen in his parting while in iḥrām. <b>Never</b> on the iḥrām garments — if perfumed, wash or change them.','<b>الطيب (العود/المسك) — للرجال:</b> في الرأس واللحية قبل النية، ولا يضر بقاؤه بعدها؛ طيّبت عائشة النبيَّ ﷺ لإحرامه، وكان يُرى وبيص الطيب في مفرقه وهو محرم. ولا يُطيَّب لباس الإحرام، فإن تطيّب فاغسله أو غيّره.')+'<div class="src">📚 '+T('al-Bukhārī 1539, 271; Muslim 1189, 1190','البخاري (1539، 271)، مسلم (1189، 1190)')+'</div></li><li>'+T('<b>Women:</b> no fragrance whose scent reaches non-maḥram men.','<b>المرأة:</b> لا تتطيب بما يظهر ريحه للرجال الأجانب.')+'</li><li>'+T('<b>Prayer:</b> no prayer specific to iḥrām is established. If an obligatory prayer is due, pray it, then make niyyah (Ibn ʿUthaymīn).','<b>الصلاة:</b> لا تثبت صلاة خاصة بالإحرام، فإن حضرت فريضة فصلِّها ثم أحرم بعدها (ابن عثيمين).')+'</li></ol></div>'+mark('prep')}},
+{id:'miqat',e:'📍',en:'Mīqāt',ar:'الميقات',h:function(){var b='';for(var k in RT)b+='<button class="rbtn'+(S.route===k?' on':'')+'" onclick="setRoute(\''+k+'\')">'+(k==='med'?'🚄 ':k==='ai'?'🕌 ':'✈️ ')+T(RT[k].en,RT[k].ar)+'</button>';
+return '<div class="card"><h2>📍 '+T('Your mīqāt — choose your route','ميقاتك — اختر طريقك')+'</h2><p class="lead">'+T('From Johannesburg, Cape Town or Durban via:','من جوهانسبرغ أو كيب تاون أو ديربان عبر:')+'</p><div class="rsel">'+b+'</div></div>'+mapSVG()+routeInfo()+mark('miqat')}},
+{id:'ihram',e:'🤍',en:'Iḥrām dress',ar:'لباس الإحرام',h:function(){return '<div class="card"><h2>👳 '+T('Men','الرجال')+'</h2>'+figs()+'<ol class="flow"><li>'+T('<b>Izār</b> (lower sheet): wrap from the navel to below the knees; secure it with a belt if needed.','<b>الإزار:</b> لُفّه من السرة إلى ما تحت الركبتين، ويجوز شدّه بحزام.')+'</li><li>'+T('<b>Ridāʾ</b> (upper sheet): over both shoulders.','<b>الرداء:</b> على الكتفين كليهما.')+'</li><li>'+T('White and clean is best. Head uncovered; sandals — no socks or closed shoes.','الأفضل الأبيض النظيف. الرأس مكشوف، ونعال — بلا جوارب ولا أحذية ساترة.')+'</li><li>'+T('<b>Iḍṭibāʿ</b> (right shoulder bare) only during this ṭawāf — not before it, not in prayer.','<b>الاضطباع</b> (كشف الكتف الأيمن) في هذا الطواف فقط — لا قبله ولا في الصلاة.')+'</li></ol><div class="note g">'+T('✓ Allowed: belt, pouch, watch, glasses, ring, hearing aid, bandage, umbrella, showering, changing iḥrām.','✓ يجوز: الحزام والمحفظة والساعة والنظارة والخاتم والسماعة والضماد والمظلة والاغتسال وتبديل الإحرام.')+'</div><div class="src">📚 '+T('al-Bukhārī 1545 (izār & ridāʾ), 1542 (what the muḥrim may not wear)','البخاري (1545) الإزار والرداء، و(1542) ما لا يلبس المحرم')+'</div></div>'
++'<div class="card"><h2>🧕 '+T('Women','النساء')+'</h2><ul class="lst"><li>'+T('Any modest, loose clothing — no special colour is required.','أي لباس ساتر واسع — لا يُشترط لون معيّن.')+'</li><li>'+T('<b>No niqāb, no gloves.</b> When non-maḥram men are near, she lowers her scarf over her face (Ibn Bāz, Ibn ʿUthaymīn).','<b>لا تلبس النقاب ولا القفازين.</b> وتسدل خمارها على وجهها إذا مرّ بها الرجال الأجانب (ابن باز، ابن عثيمين).')+'<div class="src">📚 '+T('al-Bukhārī 1838','البخاري (1838)')+'</div></li><li>'+T('<b>Menses / postnatal bleeding:</b> bathe and enter iḥrām normally; do everything except ṭawāf until pure.','<b>الحائض والنفساء:</b> تغتسل وتُحرم، وتفعل كل شيء إلا الطواف حتى تطهر.')+'<div class="src">📚 '+T('al-Bukhārī 305; Muslim 1211','البخاري (305)، مسلم (1211)')+'</div></li><li>'+T('Period-delaying tablets are permissible if a doctor confirms they are safe for you (Ibn Bāz) — discuss before travel.','يجوز استعمال حبوب تأخير الدورة إن أقرّ الطبيب سلامتها (ابن باز) — ناقشي طبيبك قبل السفر.')+'</li></ul></div>'
++'<div class="card"><h2>⛔ '+T('Once in iḥrām, avoid','بعد الإحرام اجتنب')+'</h2><ul class="lst"><li>'+T('Perfume on body/clothes/food','الطيب في البدن واللباس والطعام')+'</li><li>'+T('Cutting hair or nails','أخذ الشعر أو تقليم الأظفار')+'</li><li>'+T('Men: fitted/sewn-to-shape clothing, covering the head','للرجال: لبس المخيط، وتغطية الرأس')+'</li><li>'+T('Women: niqāb & gloves','للنساء: النقاب والقفازان')+'</li><li>'+T('Hunting; marriage contracts; marital intimacy','الصيد، وعقد النكاح، والجماع ومقدماته')+'</li></ul><button class="btn sm ghost" onclick="nav(\'warn\')">⚠️ '+T('Details & penalties','التفاصيل والكفارات')+'</button></div>'+mark('ihram')}},
+{id:'niyyah',e:'🤲',en:'Niyyah & Talbiyah',ar:'النية والتلبية',h:function(){return '<div class="card"><h2>🤲 '+T('At the mīqāt','عند الميقات')+'</h2><p>'+T('The intention is in the heart; pronouncing <b>"Labbayka ʿUmrah"</b> is Sunnah. Do not say "nawaytu…" — not reported.','النية محلها القلب، والتلفظ بـ<b>«لبيك عمرة»</b> سنة. ولا يقال «نويت…» فلم يُنقل.')+'</p></div>'+dua('niyyah')
++'<div class="note">'+T('<b>On behalf of someone</b> (deceased or unable): "Labbayka ʿUmratan ʿan [name]" — only if you have done your own first (Abū Dāwūd 1811, ṣaḥīḥ – al-Albānī).','<b>عن الغير</b> (ميت أو عاجز): «لبيك عمرةً عن فلان» — بشرط أن تكون اعتمرت عن نفسك (أبو داود 1811، صححه الألباني).')+'</div>'
++'<div class="note r">'+T('<b>Elderly, chronic illness, pregnancy?</b> If you fear being prevented from completing, add the condition below. If prevented, you exit iḥrām with no penalty (Ibn ʿUthaymīn: only for one who fears).','<b>كبير سن، مريض مزمن، حامل؟</b> إن خفت ألا تُتم فاشترط بالدعاء التالي، فإن حُبست تحللت ولا شيء عليك (ابن عثيمين: لمن خاف فقط).')+'</div>'+dua('shart')+dua('talbiyah')
++'<div class="card"><ul class="lst"><li>'+T('Men raise their voices; women say it quietly.','يرفع الرجل صوته، وتخفضه المرأة.')+'</li><li>'+T('Repeat often — on the plane, the road, in the hotel.','أكثر منها — في الطائرة والطريق والفندق.')+'</li><li>'+T('<b>Stop</b> when you begin ṭawāf.','<b>اقطعها</b> عند بدء الطواف.')+'</li></ul></div>'+mark('niyyah')}},
+{id:'haram',e:'🚪',en:'Enter Ḥaram',ar:'دخول الحرم',h:function(){return '<div class="card"><h2>🚪 '+T('Entering al-Masjid al-Ḥarām','دخول المسجد الحرام')+'</h2>'+inp('gate','📝 Gate number / name I entered','📝 رقم أو اسم الباب الذي دخلت منه','e.g. 79 King Fahd')+inp('meet','📍 Meeting point','📍 نقطة اللقاء','e.g. clock tower exit')+'<div class="src">'+T('Saved to My Card automatically.','يُحفظ تلقائيًا في بطاقتي.')+'</div></div>'+zz()+dua('enter')
++'<div class="card"><ul class="lst"><li>'+T('Any gate is fine — no gate is specified by the Sunnah for ʿUmrah.','يُدخل من أي باب — لا يتعيّن باب للعمرة.')+'</li><li>'+T('No specific duʿāʾ on first seeing the Kaʿbah is authentically established; go straight to ṭawāf (Ibn ʿUthaymīn).','لم يثبت دعاء خاص عند رؤية الكعبة، فاتجه إلى الطواف مباشرة (ابن عثيمين).')+'</li><li>'+T('Ṭawāf replaces taḥiyyat al-masjid. If the iqāmah is called, pray first.','الطواف يغني عن تحية المسجد، وإن أقيمت الصلاة فصلِّ أولًا.')+'</li></ul></div>'+dua('exit')+mark('haram')}},
+{id:'tawaf',e:'🔄',en:'Ṭawāf',ar:'الطواف',h:function(){return '<div class="card"><h2>✅ '+T('Before the first round','قبل الشوط الأول')+'</h2>'
++chk('t1','I am in wuḍūʾ','أنا على وضوء')+chk('t2','Men: iḍṭibāʿ — right shoulder uncovered','للرجال: الاضطباع — كشف الكتف الأيمن')+chk('t3','Kaʿbah on my LEFT','الكعبة عن يساري')+chk('t4','Start at the Black Stone line (green light on the wall)','البدء من محاذاة الحجر الأسود (الضوء الأخضر على الجدار)')+chk('t5','Talbiyah stopped','قطعتُ التلبية')+'</div>'+zz()+tawafW()
++'<div class="card"><h2>🖤 '+T('At the Black Stone (each round)','عند الحجر الأسود (كل شوط)')+'</h2><p>'+T('Kiss it → or touch with your hand and kiss the hand → or point with your RIGHT hand once (do not kiss the hand). Never push or harm others.','قبّله ← أو استلمه بيدك وقبّل يدك ← أو أشر إليه بيدك اليمنى مرة (ولا تقبّل يدك). ولا تزاحم ولا تؤذِ أحدًا.')+'</p></div>'+dua('hajar')
++'<div class="card"><h2>🧱 '+T('Yamani corner','الركن اليماني')+'</h2><p>'+T('Touch with your right hand if easy. Do not kiss it, do not point, no takbīr.','استلمه بيمينك إن تيسّر، ولا تقبّله ولا تُشِر إليه ولا تكبّر.')+'</p></div>'+dua('yamani')
++'<div class="note">'+T('For the rest of each round: any dhikr, duʿāʾ or Qurʾān, in any language. <b>There is no specific duʿāʾ for each round</b> (Ibn Bāz, Ibn ʿUthaymīn).','في بقية الشوط: ما شئت من ذكر ودعاء وقرآن وبأي لغة. <b>ولا يوجد دعاء مخصوص لكل شوط</b> (ابن باز، ابن عثيمين).')+'</div><div class="note r">'+T('Do not walk inside Ḥijr Ismāʿīl (the semicircle) — that round would not count.','لا تدخل حِجر إسماعيل (نصف الدائرة) — وإلا بطل ذلك الشوط.')+'</div><div class="note g">'+T('♿ Elderly or unwell: ṭawāf by wheelchair or on the upper floors is valid — the Prophet ﷺ did ṭawāf riding, and told Umm Salamah, who was ill, to do so (al-Bukhārī 1607, 1619).','♿ كبار السن والمرضى: الطواف بالعربة أو في الأدوار العليا صحيح — طاف النبي ﷺ راكبًا، وأمر أم سلمة وهي مريضة أن تطوف راكبة (البخاري 1607، 1619).')+'</div>'
++'<div class="note b">'+T('If your wuḍūʾ breaks during ṭawāf: make wuḍūʾ and start again (Ibn Bāz). If the iqāmah is called: pray, then continue from where you stopped.','إذا انتقض وضوؤك أثناء الطواف: توضأ وابدأ الطواف من جديد (ابن باز). وإذا أقيمت الصلاة: صلِّ ثم أكمل من حيث وقفت.')+'</div>'+mark('tawaf')}},
+{id:'tawaf2',e:'🕌',en:'Maqām & Zamzam',ar:'المقام وزمزم',h:function(){return '<div class="card"><h2>🕌 '+T('Two rakaʿāt at Maqām Ibrāhīm','ركعتان خلف مقام إبراهيم')+'</h2>'+chk('m1','Cover my right shoulder','غطّيت كتفي الأيمن')+'</div>'+dua('maqam')
++'<div class="card"><ol class="flow"><li>'+T('Pray 2 short rakaʿāt behind the Maqām — anywhere in the masjid if crowded.','صلِّ ركعتين خفيفتين خلف المقام — أو في أي مكان من المسجد عند الزحام.')+'</li><li>'+T('1st rakʿah: al-Fātiḥah + <b>al-Kāfirūn</b> · 2nd: al-Fātiḥah + <b>al-Ikhlāṣ</b>.','الأولى: الفاتحة و<b>الكافرون</b> · الثانية: الفاتحة و<b>الإخلاص</b>.')+'</li></ol>'+chk('m2','I prayed the 2 rakaʿāt','صلّيت الركعتين')+'</div>'+dua('zamzam')+zz()
++'<div class="note">'+T('Then, if easy, return to touch the Black Stone; otherwise go straight to aṣ-Ṣafā (Muslim 1218).','ثم إن تيسّر ارجع فاستلم الحجر الأسود، وإلا فاتجه إلى الصفا (مسلم 1218).')+'</div>'+mark('tawaf2')}},
+{id:'sai',e:'🚶',en:'Saʿy',ar:'السعي',h:function(){return '<div class="card"><h2>⛰️ '+T('Saʿy between aṣ-Ṣafā and al-Marwah','السعي بين الصفا والمروة')+'</h2><ol class="flow"><li>'+T('Start at <b>Ṣafā</b>, end at <b>Marwah</b> — 7 legs.','ابدأ بـ<b>الصفا</b> واختم بـ<b>المروة</b> — ٧ أشواط.')+'</li><li>'+T('Wuḍūʾ is recommended, not required. A woman whose menses start after ṭawāf completes her saʿy.','الوضوء مستحب لا شرط، والمرأة إن حاضت بعد الطواف تُكمل السعي.')+'</li><li>'+T('Resting, a pause for prayer, or a wheelchair are all fine.','الاستراحة والتوقف للصلاة والعربة كلها جائزة.')+'</li></ol></div>'+dua('safa1')+dua('safa')+dua('green')+saiW()+mark('sai')}},
+{id:'halq',e:'✂️',en:'Shave & Exit',ar:'الحلق والتحلل',h:function(){var all=S.done.st_halq;return '<div class="card"><h2>👳 '+T('Men','الرجال')+'</h2><ul class="lst"><li>'+T('<b>Shaving</b> the whole head is better: the Prophet ﷺ prayed three times for those who shave, and once for those who shorten.','<b>الحلق</b> أفضل: دعا النبي ﷺ للمحلّقين ثلاثًا وللمقصّرين مرة.')+'<div class="src">📚 '+T('al-Bukhārī 1728; Muslim 1302','البخاري (1728)، مسلم (1302)')+'</div></li><li>'+T('Or <b>shorten from the WHOLE head</b> — a few hairs is not enough (Ibn ʿUthaymīn).','أو <b>التقصير من جميع الرأس</b> — لا يكفي أخذ شعرات (ابن عثيمين).')+'</li><li>'+T('If Ḥajj is near (tamattuʿ), shortening is better so hair remains to shave at Ḥajj (Ibn ʿUthaymīn).','إن كان الحج قريبًا (التمتع) فالتقصير أفضل ليبقى شعر للحلق في الحج (ابن عثيمين).')+'</li></ul>'+chk('h1','Shaved / trimmed','حلقت / قصّرت')+'</div>'
++'<div class="card"><h2>🧕 '+T('Women','النساء')+'</h2><p>'+T('Gather the hair and cut a fingertip\'s length (≈ 1–2 cm) from the ends — by herself, another woman or a maḥram. Women never shave.','تجمع شعرها وتقصّ قدر أنملة (نحو ١–٢ سم) من أطرافه — بنفسها أو امرأة أو مَحرم. ولا حلق على النساء.')+'</p><div class="src">📚 '+T('Abū Dāwūd 1985 — ṣaḥīḥ (al-Albānī)','أبو داود (1985) — صححه الألباني')+'</div>'+chk('h2','Trimmed','قصّرت')+'</div>'
++'<div class="card gold hero"><p class="bism">🌙</p><h2>'+T('Taḥallul — you are out of iḥrām','التحلل — خرجت من الإحرام')+'</h2><p>'+T('All iḥrām restrictions are now lifted: normal clothes, perfume, everything. Your ʿUmrah is complete.','حلّ لك كل ما حُرّم بالإحرام: اللباس والطيب وغيرهما. وتمّت عمرتك.')+'</p><p class="art">تَقَبَّلَ اللَّهُ مِنَّا وَمِنْكُمْ</p>'+(S.lang==='en'?'<p class="fr">Taqabbalallāhu minnā wa minkum — May Allah accept from us and from you.</p>':'')+'<button class="btn gold" onclick="tick(\'st_halq\',true);celebrate()">🎉 '+T('I completed my ʿUmrah','أتممتُ عمرتي')+'</button></div>'
++'<div class="row" style="justify-content:center"><button class="btn sm ghost" onclick="resetAll()">↺ '+T('Start a new ʿUmrah','بدء عمرة جديدة')+'</button></div>'}}
+];
+function mark(id){var d=S.done['st_'+id];return '<button class="btn xl '+(d?'ghost':'gold')+'" style="margin-top:14px" onclick="tick(\'st_'+id+'\','+(!d)+');'+(d?'render(1)':'next()')+'">'+(d?'✓ '+T('Stage done — tap to undo','تمت المرحلة — اضغط للتراجع'):'✔️ '+T('Mark stage done & continue','إتمام المرحلة والمتابعة'))+'</button>'}
+function celebrate(){buzz([100,60,100,60,250]);openM('<div class="hero"><p class="bism">الحمد لله</p><h2>'+T('ʿUmrah complete','تمّت العمرة')+'</h2><p class="art">تَقَبَّلَ اللَّهُ مِنَّا وَمِنْكُمْ</p><p>'+T('Remember those who asked for your duʿāʾ.','لا تنسَ من أوصاك بالدعاء.')+'</p><button class="btn gold" onclick="closeM()">'+T('Close','إغلاق')+'</button></div>');render(1)}
+function resetAll(){if(confirm(T('Clear progress and counters? (My Card is kept)','مسح التقدم والعدادات؟ (تبقى بطاقتي)'))){S.done={};S.counts={};S.tawaf=0;S.sai=0;S.wudu=false;S.step=0;save();render()}}
+
+/* ===== warnings ===== */
+var W=[
+['inv','No niyyah — no ʿUmrah','لا نية — لا عمرة','Wearing iḥrām cloth is not iḥrām. Without the intention at the mīqāt the ʿUmrah has not begun. If you have passed the mīqāt, go back to it.','لبس ثوب الإحرام ليس إحرامًا، فمن لم ينوِ عند الميقات لم يدخل في العمرة. فإن جاوزه فليرجع إليه.','Ibn Bāz, Ibn ʿUthaymīn'],
+['fid','Passing the mīqāt without iḥrām (e.g. waiting for Jeddah)','مجاوزة الميقات بلا إحرام (كالانتظار حتى جدة)','Return to the mīqāt and enter iḥrām there — no penalty. If you enter iḥrām after it: a dam is due — a sheep slaughtered in Makkah for its poor.','ارجع إلى الميقات وأحرم منه ولا شيء عليك. فإن أحرمت بعده لزمك دم: شاة تُذبح في مكة لفقراء الحرم.','Ibn Bāz, Ibn ʿUthaymīn'],
+['inv','Ṭawāf without wuḍūʾ','الطواف بغير وضوء','Not valid according to the majority, including Ibn Bāz. Make wuḍūʾ and repeat the ṭawāf. If wuḍūʾ breaks mid-ṭawāf, renew it and restart.','لا يصح عند الجمهور ومنهم ابن باز، فتوضأ وأعد الطواف. وإن انتقض في أثنائه فتوضأ واستأنف.','Ibn Bāz'],
+['inv','Ṭawāf during menses / postnatal bleeding','الطواف حال الحيض أو النفاس','Not valid. Wait until pure, bathe, then do ṭawāf and saʿy.','لا يصح، فتنتظر حتى تطهر فتغتسل ثم تطوف وتسعى.','al-Bukhārī 305'],
+['inv','Walking through Ḥijr Ismāʿīl, or Kaʿbah on your right','المرور داخل حِجر إسماعيل أو جعل الكعبة عن يمينك','That round does not count — add a round.','لا يُحتسب ذلك الشوط فتأتي ببدله.','Ibn ʿUthaymīn'],
+['inv','Fewer than 7 rounds (ṭawāf or saʿy)','نقص الأشواط عن سبعة (طوافًا أو سعيًا)','Complete what is missing. If you doubt during it, take the lower number. Doubt after finishing is ignored.','أكمل الناقص، وإن شككت أثناءه فابنِ على الأقل، والشك بعد الفراغ لا يُلتفت إليه.','Ibn Bāz'],
+['inv','Starting saʿy at Marwah / confusing Ṣafā and Marwah','بدء السعي من المروة / الخلط بين الصفا والمروة','The first leg from Marwah does not count. Ṣafā → Marwah = 1; you must end at Marwah after 7 counted legs. Use the counter.','الشوط الأول من المروة لا يُحسب؛ الصفا ← المروة = ١، ويجب الختم بالمروة بعد ٧ أشواط محسوبة. استعن بالعدّاد.','Muslim 1218'],
+['inv','Saʿy before ṭawāf','السعي قبل الطواف','In ʿUmrah, saʿy must follow ṭawāf. Repeat the saʿy after ṭawāf.','في العمرة يجب أن يكون السعي بعد الطواف، فأعد السعي بعده.','Ibn ʿUthaymīn'],
+['inv','Shaving / trimming only part of the head (men)','حلق أو تقصير بعض الرأس (للرجال)','Not sufficient — shave or shorten from the whole head.','لا يجزئ، بل يحلق أو يقصّر من جميع الرأس.','Ibn ʿUthaymīn'],
+['ok','Forgot the 2 rakaʿāt after ṭawāf','نسيان ركعتي الطواف','Your ʿUmrah is valid (they are Sunnah). Pray them when you remember, wherever you are.','عمرتك صحيحة لأنهما سنة، فصلِّهما متى ذكرت حيث كنت.','Ibn ʿUthaymīn'],
+['ok','Took off iḥrām before shaving — forgot / did not know','خلع الإحرام قبل الحلق نسيانًا أو جهلًا','No penalty. Put iḥrām back on as soon as you know, shave/trim, then change. Doing it deliberately requires fidyah.','لا شيء عليك؛ أعد لبس الإحرام فور علمك ثم احلق أو قصّر ثم البس ثيابك. ومن تعمّد فعليه الفدية.','Ibn ʿUthaymīn'],
+['fid','Perfume, cutting hair/nails, men covering the head or wearing fitted clothes, women niqāb/gloves','الطيب، أخذ الشعر أو الأظفار، تغطية الرجل رأسه أو لبسه المخيط، نقاب المرأة وقفازاها','Forgot / did not know: no penalty — remove it at once. Deliberate: fidyah — choose one: fast 3 days, OR feed 6 poor people (½ ṣāʿ each), OR slaughter a sheep.','ناسيًا أو جاهلًا: لا شيء عليه ويزيله فورًا. متعمدًا: فدية على التخيير: صيام ٣ أيام، أو إطعام ٦ مساكين (لكل مسكين نصف صاع)، أو ذبح شاة.','al-Bukhārī 1814; Muslim 1201 (Kaʿb ibn ʿUjrah)'],
+['ok','Hair falling while washing, gentle scratching, showering, unscented soap','تساقط شعر عند الغسل، الحك برفق، الاغتسال، صابون بلا رائحة','No sin and no penalty.','لا إثم ولا فدية.','Ibn ʿUthaymīn'],
+['ok','Medicines while in iḥrām','الأدوية أثناء الإحرام','Tablets, injections, insulin, inhalers, eye drops, unscented creams, plasters and pads are permitted — avoid perfumed products. Medically needed items such as compression stockings or a head bandage: permitted for need; scholars mention fidyah — ask your group\'s scholar.','الحبوب والإبر والإنسولين والبخاخات وقطرات العين والكريمات غير المعطّرة واللصقات والفوط جائزة — وتجنّب المعطّر. وما احتيج إليه طبيًا كالجوارب الضاغطة أو عصابة الرأس: جائز للحاجة ويذكر العلماء الفدية — اسأل عالم حملتك.','Ibn Bāz, Ibn ʿUthaymīn'],
+['fid','Marital relations before completing ʿUmrah','الجماع قبل إتمام العمرة','The ʿUmrah is spoiled: complete it, make it up from the same mīqāt, and slaughter a sheep.','تفسد العمرة: يتمّها ويقضيها من الميقات نفسه ويذبح شاة.','Ibn Bāz, Ibn ʿUthaymīn'],
+['inv','Marriage contract while in iḥrām','عقد النكاح حال الإحرام','The contract is void.','العقد باطل.','Muslim 1409'],
+['bid','A special duʿāʾ for each round (from booklets)','دعاء مخصوص لكل شوط (من الكتيبات)','Not from the Sunnah. Make your own duʿāʾ, in your own language.','ليس من السنة، فادعُ بما شئت وبلغتك.','Ibn Bāz, Ibn ʿUthaymīn'],
+['bid','Loud group chanting behind a leader','الدعاء الجماعي بصوت مرتفع خلف قائد','Not Sunnah, and it disturbs others in ṭawāf.','ليس من السنة ويشوّش على الطائفين.','Ibn ʿUthaymīn'],
+['bid','"Nawaytu…", a special iḥrām prayer, raising hands on seeing the Kaʿbah','«نويت…»، صلاة خاصة للإحرام، رفع اليدين عند رؤية الكعبة','Not established. Say "Labbayka ʿUmrah" and begin.','لم يثبت شيء من ذلك، قل «لبيك عمرة» وابدأ.','Ibn ʿUthaymīn; al-Albānī'],
+['bid','Kissing / pointing at the Yamani corner; wiping walls, Maqām or kiswah for blessing','تقبيل الركن اليماني أو الإشارة إليه، والتمسح بالجدران والمقام والكسوة','Only the Black Stone is kissed; the Yamani corner is only touched. ʿUmar: "I know you are a stone that neither harms nor benefits…"','لا يُقبّل إلا الحجر الأسود، ويُستلم اليماني فقط. قال عمر: «إني أعلم أنك حجر لا تضر ولا تنفع…»','al-Bukhārī 1597'],
+['bid','Shoulder bare all the time / in prayer','كشف الكتف طوال الإحرام وفي الصلاة','Iḍṭibāʿ is only during this ṭawāf. Cover the shoulder for prayer.','الاضطباع في هذا الطواف فقط، ويُغطّى الكتف في الصلاة.','Ibn ʿUthaymīn'],
+['bid','Repeating ʿUmrah many times from at-Tanʿīm','تكرار العمرة من التنعيم مرارًا','Not the practice of the Prophet ﷺ and his Companions; extra ṭawāf is better.','ليس من هدي النبي ﷺ وأصحابه، والإكثار من الطواف أفضل.','Ibn ʿUthaymīn']];
+var WC={all:['All','الكل'],inv:['Must redo / correct','تجب الإعادة أو التصحيح'],fid:['Penalty (fidyah / dam)','فيه فدية أو دم'],ok:['No penalty — correct it','لا شيء عليه — صحّح'],bid:['Not from the Sunnah','ليس من السنة']};
+function warnV(){var f='';for(var k in WC)f+='<button class="chip'+(S.flt===k?' cur':'')+'" onclick="S.flt=\''+k+'\';save();render(1)">'+(k!=='all'?'<span class="tag '+k+'">●</span>':'')+T(WC[k][0],WC[k][1])+'</button>';
+var l='';W.forEach(function(w){if(S.flt!=='all'&&S.flt!==w[0])return;l+='<details class="w '+w[0]+'"><summary><span class="tag '+w[0]+'">'+T(WC[w[0]][0],WC[w[0]][1])+'</span><span>'+T(w[1],w[2])+'</span></summary><div class="bd">'+T(w[3],w[4])+'<div class="src">📚 '+w[5]+'</div></div></details>'});
+return '<h1>⚠️ '+T('What can harm your ʿUmrah','ما يُخلّ بالعمرة')+'</h1><div class="flt">'+f+'</div>'+l+'<div class="note b">'+T('General rule: violations from forgetfulness or ignorance carry no penalty — correct them as soon as you know (Ibn ʿUthaymīn).','القاعدة: المحظورات مع النسيان أو الجهل لا شيء فيها، ويُصحَّح الأمر فور العلم (ابن عثيمين).')+'</div>'}
+
+/* ===== my card ===== */
+function cardV(){return '<h1>🪪 '+T('My Card','بطاقتي')+'</h1><div class="card"><p class="src" style="margin-top:0">🔒 '+T('Saved only on this phone. Nothing is uploaded.','تُحفظ على هذا الجهاز فقط ولا تُرسل لأي جهة.')+'</p>'
++inp('name','Full name','الاسم الكامل')+inp('group','Group / agent & leader phone','الحملة / الوكيل ورقم المشرف','+966 …')+inp('hotel','Hotel name','اسم الفندق')+inp('room','Hotel address & room','عنوان الفندق ورقم الغرفة')+inp('gate','Gate I entered','الباب الذي دخلت منه')+inp('meet','Meeting point','نقطة اللقاء')
++inp('ec1','Emergency contact — South Africa','رقم الطوارئ — جنوب أفريقيا','+27 …')+inp('ec2','Emergency contact — Saudi Arabia','رقم الطوارئ — السعودية','+966 …')+inp('blood','Blood group','فصيلة الدم')
++area('cond','Chronic conditions','الأمراض المزمنة','e.g. type 2 diabetes, hypertension')+area('meds','Chronic medicines — name, dose, time','الأدوية المزمنة — الاسم والجرعة والوقت','e.g. metformin 500 mg twice daily')+area('allergy','Allergies','الحساسية')+area('notes','Other notes','ملاحظات أخرى')
++'<div class="row"><button class="btn gold" onclick="showCard()">🪪 '+T('Show emergency card','عرض بطاقة الطوارئ')+'</button><button class="btn ghost" onclick="shareCard()">📤 '+T('Share','مشاركة')+'</button></div></div>'
++'<div class="note">'+T('⏰ Saudi time = South African time <b>+1 hour</b>. Keep the same dose interval (e.g. insulin, antiepileptics) — check timing with your doctor or pharmacist.','⏰ توقيت السعودية = توقيت جنوب أفريقيا <b>+ ساعة</b>. حافظ على الفاصل نفسه بين الجرعات (كالإنسولين وأدوية الصرع) — راجع طبيبك أو الصيدلي.')+'</div>'
++'<div class="card sos"><h2>🚑 '+T('Emergency in Saudi Arabia','الطوارئ في السعودية')+'</h2><a href="tel:911">'+T('Unified emergency (Makkah & Madinah)','الطوارئ الموحد (مكة والمدينة)')+'<b>911</b></a><a href="tel:997">'+T('Ambulance — Red Crescent','الإسعاف — الهلال الأحمر')+'<b>997</b></a><a href="tel:999">'+T('Police','الشرطة')+'<b>999</b></a><div class="src">'+T('Add your South African consulate (Jeddah) number above under emergency contacts.','أضف رقم القنصلية الجنوب أفريقية في جدة ضمن أرقام الطوارئ أعلاه.')+'</div></div>'}
+var CF=[['name','Name','الاسم'],['blood','Blood group','فصيلة الدم'],['cond','Chronic conditions','الأمراض المزمنة'],['meds','Medicines','الأدوية'],['allergy','Allergies','الحساسية'],['hotel','Hotel','الفندق'],['room','Address / room','العنوان / الغرفة'],['group','Group / leader','الحملة / المشرف'],['ec1','Emergency (SA)','طوارئ (جنوب أفريقيا)'],['ec2','Emergency (KSA)','طوارئ (السعودية)'],['gate','Gate','الباب'],['meet','Meeting point','نقطة اللقاء'],['notes','Notes','ملاحظات']];
+function showCard(){var h='<h2 style="text-align:center">🪪 '+T('Pilgrim emergency card','بطاقة طوارئ المعتمر')+'</h2><dl class="ec">';CF.forEach(function(f){if(S.card[f[0]])h+='<dt>'+f[1]+' · '+f[2]+'</dt><dd>'+esc(S.card[f[0]]).replace(/\n/g,'<br>')+'</dd>'});openM(h+'</dl><button class="btn gold xl" onclick="closeM()">'+T('Close','إغلاق')+'</button>')}
+function shareCard(){var t='Umrahti — '+T('Emergency card','بطاقة طوارئ')+'\n';CF.forEach(function(f){if(S.card[f[0]])t+=f[1]+' / '+f[2]+': '+S.card[f[0]]+'\n'});try{if(navigator.share){navigator.share({text:t}).catch(function(){});return}if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){toast('📋 '+T('Copied','تم النسخ'))});return}}catch(e){}prompt('',t)}
+
+/* ===== about ===== */
+function aboutV(){return '<h1>ℹ️ '+T('About & sources','حول التطبيق والمصادر')+'</h1><div class="card"><h2>📚 '+T('Method','المنهج')+'</h2><p>'+T('Only ṣaḥīḥ or ḥasan evidence is used, following the verdicts of Shaykh ʿAbd al-ʿAzīz Ibn Bāz, Shaykh Muḥammad Ibn ʿUthaymīn and Shaykh Muḥammad Nāṣir ad-Dīn al-Albānī. Weak narrations and invented duʿāʾs are excluded.','اقتصرنا على الأدلة الصحيحة والحسنة، وفق فتاوى الشيخ عبد العزيز بن باز والشيخ محمد بن صالح العثيمين والشيخ محمد ناصر الدين الألباني، واستبعدنا الضعيف والأدعية المخترعة.')+'</p><ul class="lst"><li>'+T('Ibn Bāz — at-Taḥqīq wal-Īḍāḥ li-Kathīrin min Masāʾil al-Ḥajj wal-ʿUmrah','ابن باز — التحقيق والإيضاح لكثير من مسائل الحج والعمرة والزيارة')+'</li><li>'+T('Ibn ʿUthaymīn — Manāsik al-Ḥajj wal-ʿUmrah; ash-Sharḥ al-Mumtiʿ','ابن عثيمين — مناسك الحج والعمرة؛ الشرح الممتع')+'</li><li>'+T('al-Albānī — Manāsik al-Ḥajj wal-ʿUmrah; Ḥajjat an-Nabī ﷺ','الألباني — مناسك الحج والعمرة؛ حجة النبي ﷺ كما رواها عنه جابر')+'</li></ul><div class="note">'+T('This guide is not a fatwā. For personal situations, ask a trusted scholar.','هذا الدليل ليس فتوى، ولحالتك الخاصة اسأل عالمًا موثوقًا.')+'</div></div>'
++'<div class="card"><h2>📱 '+T('Tips','نصائح')+'</h2><ul class="lst"><li>'+T('Add to your home screen: iPhone — Share ⬆ → "Add to Home Screen"; Android — menu ⋮ → "Add to Home screen".','أضفه إلى الشاشة الرئيسية: آيفون — مشاركة ⬆ ← «إضافة إلى الشاشة الرئيسية»؛ أندرويد — القائمة ⋮ ← «إضافة إلى الشاشة الرئيسية».')+'</li><li>'+T('Progress, counters and My Card are saved on your phone.','التقدم والعدادات وبطاقتي محفوظة على هاتفك.')+'</li><li>'+T('👓 Senior view gives large text and simpler layout. 🔅 switches light / dark. ع / EN switches language.','👓 عرض كبار السن يكبّر الخط ويبسّط العرض. 🔅 للتبديل بين الفاتح والداكن. ع / EN لتغيير اللغة.')+'</li></ul></div>'}
+
+/* ===== navigation & render ===== */
+function goStep(i){S.view='guide';S.step=i;save();render()}
+function go(id){for(var i=0;i<STEPS.length;i++)if(STEPS[i].id===id)return goStep(i)}
+function next(){if(S.step<STEPS.length-1)goStep(S.step+1);else render(1)}
+function nav(v){S.view=v;save();render()}
+function setLang(){S.lang=S.lang==='ar'?'en':'ar';save();render(1)}
+function setTheme(){var dark=S.theme?S.theme==='dark':(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches);S.theme=dark?'light':'dark';save();apply()}
+function setSenior(){S.senior=!S.senior;save();render(1);toast(S.senior?'👓 '+T('Senior view on','عرض كبار السن مفعّل'):T('Standard view','العرض العادي'))}
+function apply(){var r=document.documentElement;r.lang=S.lang;r.dir=S.lang==='ar'?'rtl':'ltr';if(S.theme)r.setAttribute('data-theme',S.theme);else r.removeAttribute('data-theme');r.className=S.senior?'senior':'';
+document.getElementById('bLang').textContent=S.lang==='ar'?'EN':'ع';var dk=S.theme?S.theme==='dark':(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches);document.getElementById('bTheme').textContent=dk?'☀️':'🌙';document.getElementById('bSen').className='tbtn'+(S.senior?' on':'');
+var m=document.querySelector('meta[name=theme-color]');if(m)m.content=dk?'#120c06':'#5a3818'}
+function prog(){var n=0,t=STEPS.length-1;for(var i=1;i<STEPS.length;i++)if(S.done['st_'+STEPS[i].id])n++;document.getElementById('pb').style.width=(n/t*100)+'%'}
+function render(keep){apply();var a=document.getElementById('app'),h='';
+if(S.view==='guide'){h+='<div class="steps" id="stp">';STEPS.forEach(function(s,i){h+='<button class="chip'+(i===S.step?' cur':'')+(S.done['st_'+s.id]?' dn':'')+'" onclick="goStep('+i+')"><span class="n">'+(S.done['st_'+s.id]?'✓':(i===0?'🕋':AN(i)))+'</span>'+T(s.en,s.ar)+'</button>'});h+='</div>';
+h+=STEPS[S.step].h();if(S.step>0)h+='<div class="pn"><button class="btn ghost" onclick="goStep('+(S.step-1)+')">'+(S.lang==='ar'?'→ ':'← ')+T('Back','السابق')+'</button>'+(S.step<STEPS.length-1?'<button class="btn" onclick="goStep('+(S.step+1)+')">'+T('Next','التالي')+(S.lang==='ar'?' ←':' →')+'</button>':'')+'</div>';}
+else if(S.view==='warn')h=warnV();else if(S.view==='card')h=cardV();else h=aboutV();
+a.innerHTML=h;
+var nv=[['guide','🕋','Guide','الدليل'],['warn','⚠️','Avoid','المحاذير'],['card','🪪','My Card','بطاقتي'],['about','ℹ️','About','حول']],nh='';nv.forEach(function(x){nh+='<button class="nb'+(S.view===x[0]?' on':'')+'" onclick="nav(\''+x[0]+'\')"><span class="e">'+x[1]+'</span>'+T(x[2],x[3])+'</button>'});document.getElementById('nav').innerHTML=nh;
+document.getElementById('foot').innerHTML='© '+AN(2026)+' Prof Irhuma (أبو عبدالرحمن · Abu Abdurrahman) · عُمرتِي Umrahti<br>'+T('All rights reserved','جميع الحقوق محفوظة');
+prog();if(!keep)window.scrollTo(0,0);
+var c=document.querySelector('.chip.cur');if(c&&c.scrollIntoView){try{c.scrollIntoView({block:'nearest',inline:'center'})}catch(e){}}}
+document.addEventListener('visibilitychange',function(){if(WL&&document.visibilityState==='visible')awake()});
+render();
+</script>
+</body>
+</html>

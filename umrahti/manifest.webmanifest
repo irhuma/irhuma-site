@@ -1,0 +1,20 @@
+{
+  "name": "عُمرتِي Umrahti — Umrah Guide",
+  "short_name": "Umrahti",
+  "description": "Step-by-step authentic Umrah guide for South African pilgrims (EN/AR). © Prof Irhuma (Abu Abdurrahman)",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#3c240f",
+  "theme_color": "#5a3818",
+  "lang": "en",
+  "dir": "auto",
+  "categories": ["lifestyle", "travel", "education"],
+  "icons": [
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}
